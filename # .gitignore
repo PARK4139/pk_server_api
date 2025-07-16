@@ -1,0 +1,25 @@
+# _________________________________________________________
+# all f and d ignored
+/*
+# _________________________________________________________
+# allowed d 
+# !로 디렉토리 예외 처리, **로 파일 예외 처리)
+# dir /b | clip
+# _________________________________________________________
+# allowed f 
+!/pkg_cmd/**
+!/pkg_cmd/temp/**
+!.dockerignore
+!.gitattributes
+!.gitignore
+!docker-compose.yaml
+!pk_memo_how.pk
+!pk_practice.Dockerfile
+!pk_push_project_to_github.bat
+!pk_push_project_to_github.py
+!pk_push_project_to_github.sh
+!project_fastapi.Dockerfile
+!pyproject.toml
+!README.md
+!run.py
+!uv.lock

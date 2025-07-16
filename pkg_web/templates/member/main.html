@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>업무관리</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="https://red-steps.netlify.app/favicon.ico">
+    <link rel="stylesheet" href="/static/css/our_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- 구글 폰트 -->
+
+</head>
+
+
+
+<!--{# 처음 로그인 할때만 <script> 수행하도록 나타나도록 #}-->
+{% if request.session['main_page_request_cnt'] %}
+{% set auto_login = request.session['main_page_request_cnt'] %}
+{% endif %}
+{% if request.session['main_page_request_cnt']=="1" %}
+<script>
+    // auto_login 제어 (via 세션)
+    //alert('{{request.session['main_page_request_cnt']}}')
+    alert("포트폴리오 공유를 위해 로그인 자동화 적용되었습니다");
+</script>
+{% endif %}
+
+<body>
+<!-- __________________________________________________________________________________________________________________________________  메인  -->
+<div class="flex flex-col items-center main-container min-h-screen ">
+    <div class="mx-0 my-auto">
+        <a class="hyper-text-link" href="/{{jinja_data.prefix_promised}}/member">뒤로가기</a>
+        <!-- __________________________________________________________________________________________________________________________________ 출근처리  -->
+        <form name='form-go-to-office-process' action="/{{ jinja_data.prefix_promised }}/go-to-office" method="post"
+              autocomplete="off">
+            <input style="display: none;" type="text" name="go-to-office" value="promised202311110318">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-96 m-1">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    출근처리
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________ 퇴근처리  -->
+        <form name='form-leave-office-process' action="/{{ jinja_data.prefix_promised }}/leave-office" method="post"
+              autocomplete="off">
+            <input style="display: none;" type="text" name="leave-office" value="promised202311110318">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800 w-96 m-1">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    퇴근처리
+                </span>
+            </Button>
+        </form>
+
+        <!-- __________________________________________________________________________________________________________________________________ 로그아웃  -->
+        <form name='form_logout' action="/{{ jinja_data.prefix_promised }}/logout" method="post" autocomplete="off">
+            <input style="display: none;" type="text" name="logout" value="promised202311110318">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 w-96 m-1">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    로그아웃
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________ CS관리  -->
+        <form name='form-customer-service-board-process'
+              action="/{{ jinja_data.prefix_promised }}/customer-service-board"
+              method="post" autocomplete="off">
+            <input style="display: none;" type="text" name="customer-service-board" value="promised202311110318">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 w-96 m-1">
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    게시판
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________    -->
+        <form name='form-file-upload' action="/{{ jinja_data.prefix_promised }}/excel-merge" method="get">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 w-96 m-1">
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    엑셀 파일 병합
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________    -->
+        <form name='form-file-upload' action="/{{ jinja_data.prefix_promised }}/our-cloud">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800 w-96 m-1">
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    파일 공유 클라우드
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div>
+            <Button type="button"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 w-96 m-1"
+                    onclick="window.location.href='https://pjh4139.store'">
+
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    기술블로그</span>
+            </Button>
+        </div>
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div>
+            <Button type="button"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 w-96 m-1"
+                    onclick="window.location.href='/docs'">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    백엔드 스웨거</span>
+            </Button>
+        </div>
+
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div>
+            <Button type="button"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 w-96 m-1"
+                    onclick="window.location.href='https://pjh4139.store/recruit-code-test'">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    사내채용 기술 코딩 테스트 운영</span>
+            </Button>
+        </div>
+
+            <!-- __________________________________________________________________________________________________________________________________    -->
+        <form name='form-file-upload' action="/{{ jinja_data.prefix_promised }}/world-finance-data">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800 w-96 m-1">
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+                    세계 금융 관심종목 정보 웹크롤링
+<!--                    미국/한국 경제 정보-->
+                </span>
+            </Button>
+        </form>
+        <!-- __________________________________________________________________________________________________________________________________  -->
+        <form name='form-file-upload' action="/{{ jinja_data.prefix_promised }}/developer-special" method="get">
+            <Button type="submit"
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800 w-96 m-1">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-96">
+<!--             개발자 관계자 구역<br>-->
+<!--                (템플릿화 작업 중)-->
+                    UI 템플릿
+                </span>
+            </Button>
+        </form>
+
+
+    </div>
+</div>
+<!-- __________________________________________________________________________________________________________________________________ 테일윈드CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+<script>
+    // 뒤로가기(history) 초기화
+    history.replaceState(null, null, location.href);
+    window.onpopstate = function(event) {
+      history.go(1);
+    };
+</script>
+</html>

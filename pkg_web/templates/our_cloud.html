@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>파일 공유 서비스</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="https://red-steps.netlify.app/favicon.ico">
+    <link rel="stylesheet" href="/static/css/our_style.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@800&family=Noto+Serif+KR:wght@200&family=Playfair+Display:ital@0;1&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="flex flex-col main-container min-h-screen  ">
+    <div class=" items-center ">
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="mt-40"></div>
+        <div class="container-center">
+            <img class="image202311062148" src="/static/imgs/icon_program.png" alt="이미지를 불러오지 못하였습니다." title="">
+        </div>
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="p-5"></div>
+        <div class="container-center m-5">
+            <blockquote class="text202311062201">
+                파일 공유 게시판 - 다운로드/업로드
+            </blockquote>
+        </div>
+
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="m-20"></div>
+
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="m-5">
+
+
+    <a class="hyper-text-link" href="/{{jinja_data.prefix_promised}}/member">뒤로가기</a>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="p-4">
+                            <div class="flex items-center">
+<!--                                <input id="checkbox-all-search" type="checkbox"-->
+<!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+<!--                                <label for="checkbox-all-search" class="sr-only">checkbox</label>-->
+                            </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3">DESCRIPTION</th>
+<!--                        <th scope="col" class="px-6 py-3">Version</th>-->
+<!--                        <th scope="col" class="px-6 py-3">운영체제 지원</th>-->
+<!--                        <th scope="col" class="px-6 py-3">형태</th>-->
+                        <th scope="col" class="px-6 py-3">ACTIONS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+<!--                                <input id="checkbox-table-search-x" type="checkbox"-->
+<!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+<!--                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>-->
+                            </div>
+                        </td>
+                        <th scope="row"
+                            class="pl-6 pr-96  py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            파일 업로드
+                        </th>
+<!--                        <td class="px-6 py-5">0.0.0</td>-->
+<!--                        <td class="px-6 py-5">Chrome</td>-->
+<!--                        <td class="px-6 py-5">파일 서버 / 클라이언트</td>-->
+                        <form action="/{{jinja_data.prefix_promised}}/upload-files/" enctype="multipart/form-data"
+                              method="post">
+                            <td class="flex items-center px-6 py-4">
+                                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                       name="files"
+                                       type="file"
+                                       multiple value="foo">
+                                <div class="w-5"></div>
+                                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                       type="submit"
+                                       value="선택파일공유">
+                            </td>
+                        </form>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="p-4">
+                            <div class="flex items-center">
+<!--                                <input id="checkbox-all-search" type="checkbox"-->
+<!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+<!--                                <label for="checkbox-all-search" class="sr-only">checkbox</label>-->
+                            </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3">DESCRIPTION</th>
+                        <th scope="col" class="px-6 py-3">ACTIONS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in jinja_data.items %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+<!--                                <input id="checkbox-table-search-1" type="checkbox"-->
+<!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+<!--                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>-->
+                            </div>
+                        </td>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ item.title }}
+                        </th>
+                        <td class="flex items-center px-6 py-4">
+                                <!-- 다운로드 테스트 시 remote에서 테스트해야 다운받아 진다는 것 같습니다 -->
+                                <a href="/web/our-cloud/download/{{ item.title }}" download="{{item.title}}">
+                                <img class="image202311041317" src="/static/imgs/icon_download.png"
+                                     alt="이미지를 불러오지 못하였습니다."
+                                     title="">
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- __________________________________________________________________________________________________________________________________ 파일 공유  -->
+        <!--
+        <div class="m-5">
+           <div class="m-5">
+                <blockquote class="text202311062201">
+                    파일공유
+                </blockquote>
+            </div>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="p-4">
+                            <div class="flex items-center">
+
+                            </div>
+                        </th>
+                        <th scope="col" class="pl-6 pr-96 py-3">Description</th>
+                        <th scope="col" class="pl-6 pr-96 py-3">Version</th>
+                        <th scope="col" class="px-6 py-3">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                            </div>
+                        </td>
+                        <th scope="row" class="pl-6 pr-96  py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            파일 업로드
+                        </th>
+
+                        <th   class="px-6  py-4  ">
+                                0.0.0
+                        </th>
+
+                        <form action="/{{jinja_data.prefix_promised}}/upload-files/" enctype="multipart/form-data"
+                              method="post">
+
+                            <td class="flex items-center px-6 py-4">
+                                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" name="files"
+                                       type="file"
+                                       multiple value="foo">
+                                <div class="w-5"></div>
+                                <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                       type="submit"
+                                       value="선택파일공유">
+                            </td>
+                        </form>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+         -->
+        <!-- __________________________________________________________________________________________________________________________________ 테일윈드CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="our_style.js" crossorigin="anonymous"></script>
+        <!-- __________________________________________________________________________________________________________________________________ 끝  -->
+    </div>
+</div>
+</body>
+
+</html>
+
+

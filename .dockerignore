@@ -1,0 +1,52 @@
+# .dockerignore with COPY . . # COPY 를 도커파일에서 정의하여 빌드를 하면, COPY . . 시 .dockerignore의 d/f 는 ignore 됨
+#________________________________________________ important
+# todo : secret 비밀 pubkey 라던지 추가
+#________________________________________________ d/
+.idea/
+__pycache__/
+*.egg-info/
+build/
+dist/
+.vscode/
+.idea/ 
+.venv/
+pkg_cmd/
+pkg_dpl/
+pkg_font/
+pk_image/
+pkg_jpg/
+pkg_jq/
+pkg_json/
+pkg_log/
+pkg_md/
+pkg_mp3/
+pkg_msa/
+pkg_png/
+pkg_pptx/
+# pkg_py/
+pkg_sh/
+pkg_sound/
+pkg_txt/
+pkg_video/
+pkg_xlsx/
+pkg_yaml/
+pkg_yt_dlp/
+project_cmake/
+# project_fastapi/
+project_streamlit/
+project_vstest/
+project_release_server/
+#________________________________________________ f
+*.pyc
+.dockerignore
+.gitignore
+docker push by manual.bat
+memo_how.toml
+memo_work.toml
+pk_system_telegram_bot_session.session
+# requirements.txt
+setup.py
+telegram_chat_id.txt
+project_fastapi.Dockerfile
+server_alpine.Dockerfile
+requirements_rev_1.txt

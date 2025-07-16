@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>세계 금융 관심종목 정보</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="https://red-steps.netlify.app/favicon.ico">
+    <link rel="stylesheet" href="/static/css/our_style.css">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@800&family=Noto+Serif+KR:wght@200&family=Playfair+Display:ital@0;1&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="flex flex-col main-container min-h-screen  ">
+    <div class=" items-center ">
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="p-5"></div>
+        <div class="container-center m-5">
+            <blockquote class="text202311062201">
+                세계 금융 관심종목 정보 (2024-03-05 01:00 수집 데이터)
+            </blockquote>
+        </div>
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="m-20"></div>
+        <div class="flex flex-col my-auto items-center m-5">
+            <img src="/pkg_png/update_stack_info_xlsx_watched().png" width="1000">
+        </div>
+        <div class="m-20"></div>
+        <!-- __________________________________________________________________________________________________________________________________   -->
+        <div class="m-5">
+            <a class="hyper-text-link" href="/{{jinja_data.prefix_promised}}/member">뒤로가기</a>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="p-4">
+                            <!--                            <div class="flex items-center">-->
+                            <!--                                <input id="checkbox-all-search" type="checkbox"-->
+                            <!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+                            <!--                                <label for="checkbox-all-search" class="sr-only">checkbox</label>-->
+                            <!--                            </div>-->
+                        </th>
+                        <th scope="col" class="px-6 py-3">주식식별자</th>
+                        <th scope="col" class="px-6 py-3">주식명</th>
+                        <th scope="col" class="px-6 py-3">주식시장명</th>
+                        <th scope="col" class="px-6 py-3">
+                            <form action="/{{jinja_data.prefix_promised}}/world-finance-data/download-file/update_ticker_xlsx_watched().xlsx"
+                                  enctype="multipart/form-data"
+                                  method="get">
+                                <Button type="submit"
+                                        class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800 min-w-25 min-h-15 m-1">
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 min-w-25 min-h-15">
+<!--                                    주식식별자(티커)<br>엑셀 다운로드-->
+                                    엑셀 다운로드
+                                </span>
+                                </Button>
+                            </form>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in jinja_data.items %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="w-4 p-4">
+                            <div class="flex items-center">
+                                <!--                                <input id="checkbox-table-search-x" type="checkbox"-->
+                                <!--                                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">-->
+                                <!--                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>-->
+                            </div>
+                        </td>
+                        <th scope="row"
+                            class="pl-6 pr-96  py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ item.ticker }}
+                        </th>
+                        <td class="px-6 py-5">{{ item.stock_name }}</td>
+                        <td class="px-6 py-5">{{ item.market_name }}</td>
+
+                        <td class="flex items-center px-6 py-4"></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- __________________________________________________________________________________________________________________________________ 파일 공유  -->
+            <!--
+            <div class="m-5">
+               <div class="m-5">
+                    <blockquote class="text202311062201">
+                        파일공유
+                    </blockquote>
+                </div>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mb-20">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+
+                                </div>
+                            </th>
+                            <th scope="col" class="pl-6 pr-96 py-3">Description</th>
+                            <th scope="col" class="pl-6 pr-96 py-3">Version</th>
+                            <th scope="col" class="px-6 py-3">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                </div>
+                            </td>
+                            <th scope="row" class="pl-6 pr-96  py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                파일 업로드
+                            </th>
+
+                            <th   class="px-6  py-4  ">
+                                    0.0.0
+                            </th>
+
+                            <form action="/{{jinja_data.prefix_promised}}/upload-files/" enctype="multipart/form-data"
+                                  method="post">
+
+                                <td class="flex items-center px-6 py-4">
+                                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" name="files"
+                                           type="file"
+                                           multiple value="foo">
+                                    <div class="w-5"></div>
+                                    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                           type="submit"
+                                           value="선택파일공유">
+                                </td>
+                            </form>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            -->
+            <!-- __________________________________________________________________________________________________________________________________ 테일윈드CSS -->
+            <script src="https://cdn.tailwindcss.com"></script>
+            <script src="our_style.js" crossorigin="anonymous"></script>
+            <!-- __________________________________________________________________________________________________________________________________ 끝  -->
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+

@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  uv-app:
+    build:
+      context: .
+      dockerfile: pk_practice.Dockerfile
+    container_name: pk_system_test
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: uv pip run python pkg_py/pk_print_hello_world.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    tty: true

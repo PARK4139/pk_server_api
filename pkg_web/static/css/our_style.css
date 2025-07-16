@@ -1,0 +1,196 @@
+/* __________________________________________________________________________________________________________________________________ 디버깅용 코드 */
+* {
+	/* outline: dashed 1px red;   */
+}
+.body{
+    color:white;
+    background:black;
+}
+.hyper-text-link:link {
+  color: grey;
+}
+.hyper-text-link:visited {
+  color: grey;
+}
+.hyper-text-link:hover {
+  color:white;
+}
+.hyper-text-link:active {
+  color: white;
+}
+.main-container {
+   background-color: black;
+
+  /* 퍼플모드
+  background: linear-gradient(135deg, #000000, #4c0080, #000080); */
+
+  /* 연한핑크
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(76, 0, 128, 0.2), rgba(0, 0, 128, 0.2));*/
+
+  /* 블루테크트리 아이덴티티 컬러 벤치마킹 */
+  /*background: linear-gradient(135deg, #000000, #000000, #0060af);*/
+   /* width: 100%;*/
+   /* background-size: cover;*/
+  margin: 0;
+  padding: 0;
+
+  /* 퍼플 링크 */
+   background: linear-gradient(135deg, #000000, #000000, #000080); /*
+  width: 100%;
+  height:100%;*/
+  /* 텍스트 기본 컬러 적용 */
+  color: white;
+}
+
+.container-center {
+	/* font-family: Merriweather, Georgia, serif; */
+	/* line-height: 100px; */
+	/* width: 300px; */
+	background-color: black;
+	color: black;
+	font-family: Merriweather, Georgia, serif;
+	/* font-size: 21px; */
+	/* height:800px; */
+	/* position: relative; */
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.container202311041316 {
+	background-color: black;
+	color: black;
+	font-family: Merriweather, Georgia, serif;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	text-align: left;
+	text-indent: 10px;
+}
+
+.image202311041316 {
+	/* font-family: 'Noto Sans KR', sans-serif; */
+	/* font-family: 'Noto Serif KR', serif; */
+	/* line-height: 300px; */
+	/* align-items: center; */
+	/* color: black; */
+	/* display: flex; */
+	/* display: inline-block;  */
+	/* font-family: 'Playfair Display', serif; */
+	/* justify-content: center; */
+	/* margin: 0 auto; */
+	/* text-align: center; */
+	/* width:270px; */
+	/* width:90%; */
+	height:20%; 
+	
+	
+	
+} 
+.image202311041317 {
+	/* font-family: 'Noto Sans KR', sans-serif; */
+	/* font-family: 'Noto Serif KR', serif; */
+	/* line-height: 300px; */
+	/* align-items: center; */
+	/* color: black; */
+	/* display: flex; */
+	/* display: inline-block;  */
+	/* font-family: 'Playfair Display', serif; */
+	/* justify-content: center; */
+	/* margin: 0 auto; */
+	/* text-align: center; */
+	/* width:50%; */
+	width:40px;
+	/* height:40%;  */
+	
+	
+	
+} 
+.image202311062148 {
+	width:100px;
+	
+	
+}  
+
+/* __________________________________________________________________________________________________________________________________ 하이퍼링크 e */
+ 
+.row202311060247 {
+	height:55px;
+	width: 1205px;
+	
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	
+	
+
+
+}
+
+.row202311060248 {
+	height:105px;
+	width: 1205px;
+
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+
+
+
+
+}
+.cell202311060208 {
+	display: inline;/* div 태그를 span 태그처럼 되도록 속성을 붙이는 방법 */
+
+
+
+}
+.cell202311060209{
+	display: inline;/* div 태그를 span 태그처럼 되도록 속성을 붙이는 방법 */
+	font-weight: 900;
+	
+	
+	
+}
+
+ 
+.divider202311060208 {
+	height : 1px;
+	width: 1150px;
+	background-color: rgb(245, 243, 243);
+}
+.text202311062159{
+	/*color: rgb(228, 227, 227);*/
+	color: rgb(228, 227, 400);
+	font-size: 11px;
+	font-family: 'Nanum Gothic', sans-serif;
+	/* font-family: 'Noto Sans KR', sans-serif; */
+}
+.text202311062200{
+	color: white;
+	font-size: 13px;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: 500;
+}
+.text202311062201{
+	color: white;
+	font-size: 22px;
+	font-family: 'Nanum Gothic', sans-serif;
+	/* font-family: 'Noto Sans KR', sans-serif; */
+	
+	font-weight: 900;
+}
+
+.xxxx-bg {
+  background: #2b324c;
+  margin-right: 10px;
+  border: 1px solid #3c3e64;
+  border-radius: 10px;
+}
+.xxx_imgWrap {
+  background: #2b324c;
+  height: 226px;
+  border: 1px solid #3c3e64;
+}

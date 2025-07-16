@@ -1,0 +1,54 @@
+# .gitignore with git push # git push 를 하면, .gitignore의 d/f 는 ignore 됨
+#________________________________________________ important
+__pycache__
+.pytest_cache
+#________________________________________________ d
+# .git
+.idea
+.vscode
+.venv
+pk_system.egg-info
+# pkg_cmd
+# pkg_cloud
+# pkg_dpl
+# pkg_font
+# pk_image
+# pkg_jpg
+# pkg_jq
+# pkg_json
+# pkg_log
+# pkg_md
+# pkg_mp3
+# pkg_msa
+# pkg_png
+# pkg_pptx
+# pkg_py
+# pkg_sh
+# pkg_sound
+# pkg_txt
+# pkg_video
+# pkg_xlsx
+# pkg_yaml
+# pkg_yt_dlp
+# project_release_server
+# project_cmake
+# project_fastapi
+# project_streamlit
+# project_vstest
+#________________________________________________ f
+pk_token_key.toml
+pk_token_pw_2nd_sym.toml
+pk_token_github_pat.toml
+# .dockerignore
+# .gitignore
+# docker push by manual.bat
+# memo_how.toml
+# memo_work.toml
+# pk_system_telegram_bot_session.session
+# requirements.txt
+# setup.py
+# telegram_chat_id.txt
+# project_fastapi.Dockerfile
+*:*Zone.Identifier
+#________________________________________________ weired
+nul

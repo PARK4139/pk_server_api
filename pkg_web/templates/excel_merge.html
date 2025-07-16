@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>엑셀 병합 서비스</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="icon" href="https://red-steps.netlify.app/favicon.ico">
+    <link rel="stylesheet" href="/static/css/our_style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@800&family=Noto+Serif+KR:wght@200&family=Playfair+Display:ital@0;1&display=swap"
+          rel="stylesheet">
+</head>
+
+
+<body>
+<!-- __________________________________________________________________________________________________________________________________ 파일병합  -->
+<div class="flex flex-col items-center min-h-screen main-container">  <!--    min-h-screen   아주 소중한 코드-->
+    <div class="mx-0 my-auto">
+        <a class="hyper-text-link" href="/{{jinja_data.prefix_promised}}/member">뒤로가기</a>
+        <form action="/{{jinja_data.prefix_promised}}/excel-merge2/" enctype="multipart/form-data" method="post">
+            <div class="items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 w-96 m-1">
+                <input class="px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full"
+                       name="files" type="file"
+                       multiple>
+            </div>
+            <div class="items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 w-96 m-1">
+                <Button type="submit"
+                        class="px-5 py-2.5 transition-all ease-in duration-75 dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 w-full">
+                    선택된 파일들 병합
+                </Button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<!-- __________________________________________________________________________________________________________________________________ 테일윈드CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+</html>
+
+
+
+
