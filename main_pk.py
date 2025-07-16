@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from fastapi import HTTPException
 from fastapi.exceptions import RequestValidationError
@@ -9,15 +8,16 @@ from starlette.middleware.exceptions import ExceptionMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.templating import Jinja2Templates
 
-from pkg_py.pk_core_constants import D_STATIC, D_PROJECT_FASTAPI, D_PKG_CLOUD, D_PKG_PNG
+from pkg_py.pk_colorful_cli_util import pk_print
 from pkg_py.pk_core import get_random_bytes, ensure_pnx_made, get_pnx_os_style, LTA
-from project_fastapi.pkg_routers import router_nav_items
+from pkg_py.pk_core_constants import D_STATIC, D_PROJECT_FASTAPI, D_PKG_CLOUD, D_PKG_PNG
+from pkg_routers import router_nav_items
 
 templates = Jinja2Templates(directory=r"pkg_web/templates")
 
+
 def init_cors_policy(app):
     from fastapi.middleware.cors import CORSMiddleware
-
     # op 에서는 nginx 에서 CORS 설정을 할 것 이므로
     # CORS 두개 설정하면 multi header 로 인한 Control-Allow-Origin' header contains multiple values '*, https://www.pjh4139.store', but only one is allowed. 에러가 발생할 것이다.
     app.add_middleware(
@@ -133,7 +133,6 @@ async def lifespan(app: FastAPI):  # oneshot trigger
     import traceback
     import sys
     import os
-    from pkg_py.pk_colorful_cli_util import pk_print
 
     try:
         pk_print(rf'''LTA="{LTA}" %%%FOO%%%''')
@@ -181,6 +180,9 @@ for d in [D_PROJECT_FASTAPI, D_STATIC, D_PKG_CLOUD, D_PKG_PNG]:
     ensure_pnx_made(mode='d', pnx=d)
     d = get_pnx_os_style(d)
 
+
+
+
 app = FastAPI(lifespan=lifespan, swagger_ui_parameters={"tryItOutEnabled": True})
 app.mount("/static", StaticFiles(directory=D_STATIC), name="static")  # html 에서 /static 오로 찾게되는 것 같음.
 app.mount("/pkg_cloud", StaticFiles(directory=D_PKG_CLOUD), name="pkg_cloud")
@@ -192,12 +194,12 @@ app.mount("/pkg_png", StaticFiles(directory=D_PKG_PNG), name="pkg_png")
 if not LTA:
     init_cors_policy(app)  # nginx 가 앞단이므로 nginx 에서 설정하는 되어 있으므로 dev 에서 테스트 시에만 필요
 
+
 # fastapi 기본 예외처리 핸들러
 # FastAPI는 기본적으로 예외 처리를 으로 처리하고 오류 응답을 생성합니다. 하지만 커스텀 핸들러를 추가하여, 예외를 직접 처리할 수 있음
 @app.exception_handler(RequestValidationError)
 async def reqeust_validation_exception_handler(request: Request, exc):  # exc : Exception
     from starlette.responses import HTMLResponse, JSONResponse
-    from pkg_py.pk_colorful_cli_util import pk_print
 
     pk_print(rf'''request.url : {request.url}''')
     # 이거 고민되는데 api 라면 json 으로 respon 하는게 좋겠고, web이라면 http 로 respon 하는게 맞을 것 같은데 이를 알아낼 수 있으면 좋겠다. 우선은 json 으로 respon 하자
@@ -218,7 +220,6 @@ async def reqeust_validation_exception_handler(request: Request, exc):  # exc : 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc):  # exc : Exception\
     from starlette.responses import HTMLResponse, JSONResponse
-    from pkg_py.pk_colorful_cli_util import pk_print
 
     pk_print(rf'''request.url : {request.url}''')
     # 이거 고민되는데 api 라면 json 으로 respon 하는게 좋겠고, 
@@ -274,6 +275,7 @@ app.add_middleware(
     max_age=3600,  # 세션 수명 3600 초(1시간)
 )
 
+
 @app.middleware("http")
 async def preprocess_after_request(request, call_next):
     # 매 라우팅 전에 동작하는 함수 # 일종의 aop 같이 처리? # request 감지하고 트리거로서 가로채기를 하는 느낌이다
@@ -289,9 +291,10 @@ async def preprocess_before_response_return(request, call_next):
     await preprocess_before_response_return(request, response)
     return response
 
+
 # 라우팅 동작 설계 (잠정)
-# https://pk_system.store/api/
-# https://pk_system.store/web/
+# https://pk_server_fastapi.store/api/
+# https://pk_server_fastapi.store/web/
 # https://pjh4139.store/search/p=
 
 # 파비콘 라우팅 처리
@@ -309,7 +312,7 @@ async def check_api_health(request: Request):
     import os
     import inspect
     from starlette.responses import RedirectResponse
-    from pkg_py.pk_colorful_cli_util import pk_print
+
     from pkg_py.pk_core import print_iterable_as_vertical
 
     router_n = inspect.currentframe().f_code.co_name
@@ -328,6 +331,7 @@ async def check_api_health(request: Request):
         # redirect web
         return RedirectResponse(url="/web/member")
 
+
 # web
 # app.include_router(router_main.router, prefix="/web", tags=["회원관리 메인 web (MySql)"])
 # app.include_router(router_join.router, prefix="/web", tags=["회원관리 가입 web (MySql)"])
@@ -342,6 +346,8 @@ async def check_api_health(request: Request):
 
 # api
 app.include_router(router_nav_items.router, prefix="/api", tags=["nav-items API #DB JSON"])
+
+
 # app.include_router(router_test_try_1.router, prefix="/test", tags=["x test try 1"])
 # app.include_router(router_test_try_2.router, prefix="/test", tags=["x test try 2"])
 # app.include_router(router_test_try_3.router, prefix="/test", tags=["x test try 3"])
@@ -353,22 +359,10 @@ app.include_router(router_nav_items.router, prefix="/api", tags=["nav-items API 
 
 # 이 파일을 uvicorn으로 실행하면 해당 코드 블록이 실행되지 않습니다.
 def main():
-    import os.path
     import uvicorn
-    import traceback
     import toml
-    import sys
-    import os.path
-    import os
-    import json
-    import inspect
-    from starlette.templating import Jinja2Templates
-    from starlette.responses import HTMLResponse, RedirectResponse, JSONResponse
-    from pkg_py.pk_colorful_cli_util import pk_print
-    from pkg_py.pk_core import print_iterable_as_vertical
-    from pkg_py.pk_core import ensure_pnx_made, is_letters_cnt_zero, write_str_to_f
-    from pkg_py.pk_core import get_n, ensure_pnx_made
-    from fastapi.middleware.cors import CORSMiddleware
+
+    from pkg_py.pk_core import get_n
     from pkg_py.pk_core_constants import F_CONFIG_TOML
 
     config = toml.load(F_CONFIG_TOML)

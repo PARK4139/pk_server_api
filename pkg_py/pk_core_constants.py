@@ -168,7 +168,7 @@ STAMP_TEST = "[ TEST ]"
 STAMP_PK_DEBUGER_ENVIRONMENT = rf"(pk_debuger)"
 STAMP_PK_ENVIRONMENT = rf"(pk)"
 STAMP_PK_ENVIRONMENT_WITHOUT_BRAKET = rf"pk"
-# STAMP_PK_ENVIRONMENT = rf"(pk_system)"
+# STAMP_PK_ENVIRONMENT = rf"(pk_server_fastapi)"
 # ____________________________________________________________________________________
 NO = "그냥 닫아"
 YES = "응"

@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 
-from pkg_pk_system_for_linux import DebuggingUtil, MySqlUtil, BusinessLogicUtil, FastapiUtil, CustomerServiceBoardUtil, CommutationManagementUtil, MemberUtil, TestUtil
+from pkg_pk_server_fastapi_for_linux import DebuggingUtil, MySqlUtil, BusinessLogicUtil, FastapiUtil, CustomerServiceBoardUtil, CommutationManagementUtil, MemberUtil, TestUtil
 
 templates = Jinja2Templates(directory=r"pkg_web/templates")
 

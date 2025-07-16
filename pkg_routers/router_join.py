@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from pkg_pk_system_for_linux import DebuggingUtil, MySqlUtil, BusinessLogicUtil, FastapiUtil, MemberUtil
+from pkg_pk_server_fastapi_for_linux import DebuggingUtil, MySqlUtil, BusinessLogicUtil, FastapiUtil, MemberUtil
 
 templates = Jinja2Templates(directory=r"pkg_web/templates")
 

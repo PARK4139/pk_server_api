@@ -61,8 +61,8 @@ T = TypeVar('T')  # 타입 힌팅 설정
 
 # from venv import create
 
-# logger = logging.getLogger('pk_system_test_logger')
-# hdlr = logging.FileHandler('pk_system_logger.log')
+# logger = logging.getLogger('pk_server_fastapi_test_logger')
+# hdlr = logging.FileHandler('pk_server_fastapi_logger.log')
 # hdlr.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 # logger.addHandler(hdlr)
 # logger.setLevel(logging.INFO)
@@ -241,7 +241,7 @@ class DbTomlUtil:
     def create_db_toml():
         try:
             db_abspath = DB_TOML
-            # db_template =pk_system.db_template
+            # db_template =pk_server_fastapi.db_template
             pk_print(f"{inspect.currentframe().f_code.co_name}()")
             if not os.path.exists(os.path.dirname(db_abspath)):
                 os.makedirs(os.path.dirname(db_abspath))  # 이거 파일도 만들어지나? 테스트 해보니 안만들어짐 디렉토리만 만들어짐
@@ -297,7 +297,7 @@ class DbTomlUtil:
             with open(db_abspath, 'r', encoding='utf-8') as f:
                 db = toml.load(f)
                 # pk_print("DB 업데이트 전 ")
-                # pk_system.debug_as_cli(context=str(db))
+                # pk_server_fastapi.debug_as_cli(context=str(db))
 
             # 데이터 업데이트
             if key in db:
@@ -315,7 +315,7 @@ class DbTomlUtil:
             # with open(db_abspath, 'r') as f:
             #     db = toml.load(f)
             #     pk_print("DB 변경 확인")
-            #     pk_system.debug_as_cli(context=str(db))
+            #     pk_server_fastapi.debug_as_cli(context=str(db))
         except:
             pk_print("%%%FOO%%%")
 
@@ -330,7 +330,7 @@ class DbTomlUtil:
             with open(db_abspath, 'r', encoding='utf-8') as f:
                 db = toml.load(f)
                 # pk_print("DB 업데이트 전 ")
-                # pk_system.debug_as_cli(context=str(db))
+                # pk_server_fastapi.debug_as_cli(context=str(db))
 
             # 데이터 삽입
             if key in db:
@@ -348,7 +348,7 @@ class DbTomlUtil:
             # with open(db_abspath, 'r') as f:
             #     db = toml.load(f)
             #     pk_print("DB 변경 확인")
-            #     pk_system.debug_as_cli(context=str(db))
+            #     pk_server_fastapi.debug_as_cli(context=str(db))
         except:
             pk_print("%%%FOO%%%")
 
@@ -1924,7 +1924,7 @@ def get_biological_age(birth_day):
 #         pk_print(btn_text_clicked)
 #         if btn_text_clicked == "종료":
 #             # app.quit()
-#             # pk_system.taskkill("python.exe")
+#             # pk_server_fastapi.taskkill("python.exe")
 #             # self.close()
 #             sys.exit()
 #             # break
@@ -2026,7 +2026,7 @@ def get_biological_age(birth_day):
 #
 # def download_video_from_web1():
 #     while 1:
-#         # pk_system.press("ctrl", "0")
+#         # pk_server_fastapi.press("ctrl", "0")
 #         file_png = rf"{D_PROJECT}\$cache_png\download_video_via_chrome_extensions.png"
 #         click_center_of_img_recognized_by_mouse_left(img_abspath=file_png, recognize_loop_limit_cnt=10)
 #
@@ -2317,7 +2317,7 @@ def get_biological_age(birth_day):
 #                     for file_name in lines:
 #                         file_name = file_name.strip()
 #                         file_name = file_name.strip("\n")
-#                         # pk_system.get_cmd_output(cmd = f'dir /b /s "{file_name}"')
+#                         # pk_server_fastapi.get_cmd_output(cmd = f'dir /b /s "{file_name}"')
 #                         get_cmd_output(cmd=f'dir /b /s "{file_name}" | clip.exe')
 #                         useless_files.append(clipboard.paste())
 #                     useless_files = "\n".join(useless_files)  # from [str] to str
@@ -2348,18 +2348,18 @@ def get_biological_age(birth_day):
 #                 # try:
 #                 #     useless_files = []
 #                 #     isSpoken = False
-#                 #     lines = pk_system.get_lines_of_file(pk_system.USELESS_FILES)
+#                 #     lines = pk_server_fastapi.get_lines_of_file(pk_server_fastapi.USELESS_FILES)
 #                 #     os.chdir(directory_abspath)
 #                 #     for file_name in lines:
 #                 #         file_name = file_name.strip()
 #                 #         file_name = file_name.strip("\n")
 #                 #         useless_files.append(file_name)
 #                 #     dst = rf"D:\[noe] [8TB] [ext]\$useless_directories"
-#                 #     pk_system.make_d_leaf(dst)
+#                 #     pk_server_fastapi.make_d_leaf(dst)
 #                 #     # os.chmod(file_path, 0o777) # 0o777 소유자만 7의 권한부여, 나머지는 권한 없앰 # 777 누구나
 #                 #     os.chmod(directory_abspath, 0o777)
 #                 #     os.chmod(dst, 0o777)
-#                 #     pk_system.make_d_leaf(dst)
+#                 #     pk_server_fastapi.make_d_leaf(dst)
 #                 #     if os.path.isdir(directory_abspath):
 #                 #         for root, dirs, files in os.walk(directory_abspath, topdown=False):  # os.walk()는 with walking 으로 동작한다
 #                 #             for file in files:
@@ -2368,7 +2368,7 @@ def get_biological_age(birth_day):
 #                 #                     if useless_file in os.path.basename(useless_file):
 #                 #                         print(rf"useless file : {file_path}")
 #                 #                         os.chmod(file_path, 777)
-#                 #                         pk_system.move_without_overwrite(src=file_path, dst=dst)
+#                 #                         pk_server_fastapi.move_without_overwrite(src=file_path, dst=dst)
 #                 #                         if isSpoken == False:
 #                 #                             TtsUtil.speak_ments("타겟경로를 순회하며 약속된 불필요한 파일을 약속된 폴더로 모았습니다", sleep_after_play=0.65)
 #                 #                             isSpoken = True
@@ -2519,7 +2519,7 @@ def get_biological_age(birth_day):
 def do_random_schedules():
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
     int_random = random.randint(0, 7)
-    # pk_system_pk_system.Tts.speak(f'랜덤숫자 {int_random} 나왔습니다')
+    # pk_server_fastapi_pk_server_fastapi.Tts.speak(f'랜덤숫자 {int_random} 나왔습니다')
     # mkmk
     if int_random == 0:
         pass
@@ -2664,10 +2664,10 @@ def get_name_space():  # name space # namespace # 파이썬 네임스페이스
 #                         # regex = 'd{4} d{2} d{2} d{2} d{2} d{2}'
 #                         # regex = r'\d{4} \d{2} \d{2} \d{2} \d{2} \d{2}'
 #                         regex = r'd{4} d{2} d{2} d{2} d{2} d{2}'
-#                         # pk_system.debug_as_cli(line)
+#                         # pk_server_fastapi.debug_as_cli(line)
 #                         if is_regex_in_contents(line, regex):
 #                             pk_print(f"zip 파일 목록에 대하여 {regex} 타임스탬프 정규식 테스트를 통과했습니다")
-#                             # pk_system.debug_as_cli(line)
+#                             # pk_server_fastapi.debug_as_cli(line)
 #                             # 2023-12-03 일 20:03 trouble shooting 성공
 #                             # 빽업 시 타임스탬프에 언더바 넣도록 변경했는데 regex 는 변경 하지 않아서 난 실수 있었음.
 #                             time_to_backed_up = re.findall(regex, line)
@@ -2685,7 +2685,7 @@ def get_name_space():  # name space # namespace # 파이썬 네임스페이스
 #                             # 지금부터 7일 이전의 파일만
 #                             # diff = time_to_backed_up__ - time_current
 #                             # if diff.days <-7:
-#                             # pk_system.debug_as_cli(f"line : {line}")
+#                             # pk_server_fastapi.debug_as_cli(f"line : {line}")
 #
 #                             # pk_print(f"1분(60 seconds) 이전의 파일자동정리 시도...")
 #                             pk_print(f"파일자동정리 시도...")
@@ -2887,13 +2887,13 @@ def parse_youtube_video_id(url):
         # pk_print()(f"query.path[1:] : {query.path[1:]}")
         return query.path[1:]
     if query.hostname in ('www.youtube.com', 'youtube.com'):
-        # pk_system.debug_as_cli(query.scheme)
-        # pk_system.debug_as_cli(query.netloc)
-        # pk_system.debug_as_cli(query.hostname)
-        # pk_system.debug_as_cli(query.port)
-        # pk_system.debug_as_cli(query._replace(fragment="").geturl())
-        # pk_system.debug_as_cli(query)
-        # pk_system.debug_as_cli(query["v"][0])
+        # pk_server_fastapi.debug_as_cli(query.scheme)
+        # pk_server_fastapi.debug_as_cli(query.netloc)
+        # pk_server_fastapi.debug_as_cli(query.hostname)
+        # pk_server_fastapi.debug_as_cli(query.port)
+        # pk_server_fastapi.debug_as_cli(query._replace(fragment="").geturl())
+        # pk_server_fastapi.debug_as_cli(query)
+        # pk_server_fastapi.debug_as_cli(query["v"][0])
         if query.path == '/watch':
             p = urllib_parser.parse_qs(query.query)
             # pk_print()(f"p['v'][0] : {p['v'][0]}")
@@ -2916,9 +2916,9 @@ def parse_youtube_video_id(url):
 #         # 다운로드가 안되면 주석 풀어 시도
 #         # os.system(rf'{YT_DLP_CMD} -U')
 #
-#         # pk_system.raise_error('의도적으로 에러를 발생 중...')
+#         # pk_server_fastapi.raise_error('의도적으로 에러를 발생 중...')
 #         # if
-#         #     pk_system.debug_as_cli(rf'다운로드가 된 url 입니다 {url}')
+#         #     pk_server_fastapi.debug_as_cli(rf'다운로드가 된 url 입니다 {url}')
 #         #
 #
 #         print('다운로드 옵션 파싱 중...')
@@ -2970,7 +2970,7 @@ def parse_youtube_video_id(url):
 #         #     video_id = str(input('video option:'))
 #         #     audio_id = str(input('audio option:'))
 #         #     speak(rf'다운로드 옵션이 선택되었습니다')
-#         #     pk_system.debug_as_cli(rf'video option: {video_id}  audio option: {audio_id}')
+#         #     pk_server_fastapi.debug_as_cli(rf'video option: {video_id}  audio option: {audio_id}')
 #         #     speak(rf'video option: {video_id}  audio option: {audio_id}')
 #         # else:
 #         #     pass
@@ -3285,13 +3285,13 @@ def parse_youtube_video_id(url):
 #     }
 #     return display_setting
 
-# deprecated method by pk_system_
+# deprecated method by pk_server_fastapi_
 # def print_police_line(police_line_ment):
 
 #     police_line = ''
 #     for i in range(0, 255 // len(police_line_ment)):
 #         police_line = police_line + f'{police_line_ment} '
-#     pk_system.debug_as_cli(f'{police_line.upper()}')
+#     pk_server_fastapi.debug_as_cli(f'{police_line.upper()}')
 
 def is_regex_in_contents(target, regex):
     # pk_print(f"{inspect.currentframe().f_code.co_name}()")
@@ -3299,14 +3299,14 @@ def is_regex_in_contents(target, regex):
     m = pattern.search(target)
     if m:
         # pk_print("function name   here here here")
-        # pk_system.debug_as_cli(rf"contents: {contents}")
-        # pk_system.debug_as_cli(rf"regex: {regex}")
-        # pk_system.debug_as_cli(rf"True")
+        # pk_server_fastapi.debug_as_cli(rf"contents: {contents}")
+        # pk_server_fastapi.debug_as_cli(rf"regex: {regex}")
+        # pk_server_fastapi.debug_as_cli(rf"True")
         return True
     else:
-        # pk_system.debug_as_cli(rf"contents: {contents}")
-        # pk_system.debug_as_cli(rf"regex: {regex}")
-        # pk_system.debug_as_cli(rf"False")
+        # pk_server_fastapi.debug_as_cli(rf"contents: {contents}")
+        # pk_server_fastapi.debug_as_cli(rf"regex: {regex}")
+        # pk_server_fastapi.debug_as_cli(rf"False")
         return False
 
 
@@ -3352,8 +3352,8 @@ def recommand_console_color():
                         os.system('cls')
                         for setting_key, setting_value in get_display_info().items():
                             pass
-                            # pk_system.debug_as_cli(f'setting_key: {setting_key}  ,setting_value: {setting_value}  ')
-                        # pk_system.debug_as_cli(f"color {color_bg}{color_text}")
+                            # pk_server_fastapi.debug_as_cli(f'setting_key: {setting_key}  ,setting_value: {setting_value}  ')
+                        # pk_server_fastapi.debug_as_cli(f"color {color_bg}{color_text}")
                         for i in range(0, 32):
                             pk_print('')
                         to_right_nbsp = ''
@@ -3444,11 +3444,11 @@ def make_party_console():
 
 # 이 메소드를 만들면서 권한을 얻는 여러가지 방법을 stack over flow 를 따라 시도해보았으나 적다한 해결책을 찾지 못함. pyautogui 로 시도 방법은 남아있으나
 # 일단은 regacy 한 방법으로 임시로 해결해두었다.
-def update_global_pkg_pk_system_for_linux():
+def update_global_pkg_pk_server_fastapi_for_linux():
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
-    local_pkg = rf"{D_PROJECT}\pkg_pk_system_for_linux"
-    global_pkg = rf"C:\Python312\Lib\site-packages\pkg_pk_system_for_linux"
-    updateignore_txt = rf"{D_PROJECT}\pkg_pk_system_for_linux\updateignore.txt"
+    local_pkg = rf"{D_PROJECT}\pkg_pk_server_fastapi_for_linux"
+    global_pkg = rf"C:\Python312\Lib\site-packages\pkg_pk_server_fastapi_for_linux"
+    updateignore_txt = rf"{D_PROJECT}\pkg_pk_server_fastapi_for_linux\updateignore.txt"
     try:
         if os.path.exists(global_pkg):
             # 삭제시도
@@ -3467,12 +3467,12 @@ def update_global_pkg_pk_system_for_linux():
             os.system(cmd)
 
             # 디버깅
-            # pk_system_TestUtil.pause()
+            # pk_server_fastapi_TestUtil.pause()
             pk_print(f'{cmd}')
             pk_print(f"{UNDERLINE_PROMISED}")
-            return "REPLACED global pkg_pk_system_for_linux AS local_pkg"
+            return "REPLACED global pkg_pk_server_fastapi_for_linux AS local_pkg"
         else:
-            return "pkg_pk_system_for_linux NOT FOUND AT GLOBAL LOCATION"
+            return "pkg_pk_server_fastapi_for_linux NOT FOUND AT GLOBAL LOCATION"
 
     except Exception as e:
         pk_print("202312030016")
@@ -3552,7 +3552,7 @@ def merge_video_and_sound(file_v_abspath, file_a_abspath):
 #         function(*args, **kwargs)
 #         time_e = time.time()
 #         mesured_time = time_e - time_s
-#         pk_system.debug_as_cli(f'측정시간은 {mesured_time} 입니다')
+#         pk_server_fastapi.debug_as_cli(f'측정시간은 {mesured_time} 입니다')
 #         pk_print(f'측정시간은 {mesured_time} 입니다')
 #     return wrapper
 
@@ -3604,13 +3604,13 @@ def replace_with_auto_no_orderless(contents: str, unique_word: str, auto_cnt_sta
     # lines = contents.split("\n")
     lines = contents.strip().split("\n")  # 문제 없긴 했는데,  어떻게 되나 실험해보자 안되면 위의 코드로 주석 스와핑할것.
     for line in lines:
-        # pk_system.debug_as_cli(line)
-        # pk_system.debug_as_cli(before)
-        # pk_system.debug_as_cli(str(after))
+        # pk_server_fastapi.debug_as_cli(line)
+        # pk_server_fastapi.debug_as_cli(before)
+        # pk_server_fastapi.debug_as_cli(str(after))
         after = after + 1
 
         line_new = re.sub(str(before), str(after), str(line))
-        # pk_system.debug_as_cli(line_new)
+        # pk_server_fastapi.debug_as_cli(line_new)
         contents_new.append(line_new)
 
     # pk_print("str list to str")
@@ -3750,16 +3750,16 @@ def save_all_list():  # 수정 필요, 모든 파일 디렉토리 말고, 특정
             break
         lines_cnt = lines_cnt + 1
         if any(text_black not in line for text_black in texts_black):
-            # pk_system.debug_as_cli(line)
+            # pk_server_fastapi.debug_as_cli(line)
             if any(text_white in line for text_white in texts_white):
-                # pk_system.debug_as_cli(line.split("\n")[0] + " o")
+                # pk_server_fastapi.debug_as_cli(line.split("\n")[0] + " o")
                 f2.write(line.split("\n")[0] + " o " + "\n")
-                # pk_system.debug_as_cli('o')
+                # pk_server_fastapi.debug_as_cli('o')
                 pass
             else:
-                # pk_system.debug_as_cli(line.split("\n")[0] + " x")
+                # pk_server_fastapi.debug_as_cli(line.split("\n")[0] + " x")
                 # f2.write(line.split("\n")[0] + " x "+"\n")
-                # pk_system.debug_as_cli('x')
+                # pk_server_fastapi.debug_as_cli('x')
                 pass
     f.close()
     f2.close()
@@ -3790,12 +3790,12 @@ def get_line_cnt_of_file(target_abspath: str):
         # 파일이 변경되었을 때에도 이전에 캐시된 내용을 반환하여 오래된 정보를 사용할 수 있습니다.
         # 실시간으로 파일의 변경을 감지해야 하는 경우에는 정확한 결과를 얻기 어려울 수 있습니다.
         # line_cnt = len(linecache.getlines(target_abspath))
-        # pk_system.debug_as_cli(f'line_cnt:{line_cnt}')  캐시된 내용을 반환하기 때문에. 실시간 정보가 아니다
+        # pk_server_fastapi.debug_as_cli(f'line_cnt:{line_cnt}')  캐시된 내용을 반환하기 때문에. 실시간 정보가 아니다
 
         # 이 코드는 실시간으로 파일의 변경을 감지 처리 되도록 수정, 단, 파일이 크면 성능저하 이슈 있을 수 있다.
         with open(target_abspath, 'r', encoding="UTF-8") as file:
             # whole_contents = file.readlines()
-            # pk_system.debug_as_cli(whole_contents)
+            # pk_server_fastapi.debug_as_cli(whole_contents)
             # line_cnt = len(whole_contents)
             # line_cnt = list(en umerate(file))[-1][0] + 1
             line_cnt = file.read().count("\n") + 1
@@ -3831,7 +3831,7 @@ def back_up_by_manual(target_abspath):
         # os.chdir(target_dirname)
         os.chdir(starting_directory)
         # pk_print("os.getcwd()")
-        # pk_system.debug_as_cli(os.getcwd())
+        # pk_server_fastapi.debug_as_cli(os.getcwd())
 
     except:
         pk_print("202312030000d")
@@ -3882,7 +3882,7 @@ def open_mouse_info():
 #             pyautogui.hotkey(*presses, interval=interval)
 #             tmp = ' + '.join(i for i in presses)
 #             pk_print(rf"{tmp} 눌렸습니다")
-#         # pk_system.pk_sleep(milliseconds=100)
+#         # pk_server_fastapi.pk_sleep(milliseconds=100)
 #         break
 
 #
@@ -3890,7 +3890,7 @@ def open_mouse_info():
 
 #     """pyautogui, 마우스의 위치 주변 가로 세로 400 px  400 px 로 스크린샷 찍어서 저장하는 코드"""
 #     # 재우기
-#     pk_system.pk_sleep(milliseconds=milliseconds)
+#     pk_server_fastapi.pk_sleep(milliseconds=milliseconds)
 #
 #     # 현재 마우스 위치 가져오기
 #     x, y = pyautogui.position()
@@ -3903,8 +3903,8 @@ def open_mouse_info():
 #     pygui = pyautogui.screenshot(region=(left, top, width, height))
 #
 #     # 스크린샷 저장
-#     server_time = pk_system.get_time_as_('%Y_%m_%d_%H_%M_%S')
-#     screenshot_png = rf'{pk_system.PROJECT_DIRECTORY}\$cache_png\screenshot_{server_time}.png'
+#     server_time = pk_server_fastapi.get_time_as_('%Y_%m_%d_%H_%M_%S')
+#     screenshot_png = rf'{pk_server_fastapi.PROJECT_DIRECTORY}\$cache_png\screenshot_{server_time}.png'
 #     try:
 #         os.makedirs(os.path.dirname(screenshot_png))
 #     except FileExistsError:
@@ -4051,9 +4051,9 @@ def find_direction_via_naver_map(destination: str):
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
     while 1:
         # 배경화면으로 나가기(옵션로직)
-        # pk_system.press("win", "m")
-        # pk_system.press("win", "m")
-        # pk_system.sleep(10)
+        # pk_server_fastapi.press("win", "m")
+        # pk_server_fastapi.press("win", "m")
+        # pk_server_fastapi.sleep(10)
 
         # 페이지 열기
         # url = "https://map.naver.com/"
@@ -4068,8 +4068,8 @@ def find_direction_via_naver_map(destination: str):
         sleep(30)
 
         # 반쪽화면 만들기(옵션로직)
-        # pk_system.press("alt", "up")
-        # pk_system.press("alt", "left")
+        # pk_server_fastapi.press("alt", "up")
+        # pk_server_fastapi.press("alt", "left")
 
         # 출발지 입력 클릭
         file_png = rf"{D_PROJECT}\$cache_png\find_direction_via_naver_direction.png"
@@ -4148,7 +4148,7 @@ def find_direction_via_naver_map(destination: str):
 #             pk_print("web src 분석시작")
 #             # title 가져오기
 #             # num = 0  # num 초기값
-#             # pk_system.debug_as_cli(soup.get_text())
+#             # pk_server_fastapi.debug_as_cli(soup.get_text())
 #             for i in soup.find_all(name="a"):
 #                 pk_print(i)
 #
@@ -4193,7 +4193,7 @@ def find_direction_via_naver_map(destination: str):
 #             # dialog = CustomDialog(contents="웹 크롤링 결과를 화면에 시현할까요?", buttons=["시현하기", "시현하지 않기"])
 #             # dialog.exec()
 #             # btn_text_clicked = dialog.btn_text_clicked
-#             # pk_system.debug_as_cli(btn_text_clicked)
+#             # pk_server_fastapi.debug_as_cli(btn_text_clicked)
 #             # if btn_text_clicked == "시현하기":
 #             dialog = UiUtil.CustomQdialog(ment=results_about_titles_and_magnets, btns=["확인"])
 #             dialog.exec()
@@ -4264,9 +4264,9 @@ def find_direction_via_naver_map(destination: str):
 #                             speak_ments(ment="네 그만하겠습니다", sleep_after_play=0.65)
 #                             break
 #                         for i in range(0, len(magnets)):
-#                             # pk_system.pk_sleep(milliseconds=random.randint(20, 40))
+#                             # pk_server_fastapi.pk_sleep(milliseconds=random.randint(20, 40))
 #                             pk_sleep(milliseconds=random.randint(10, 20))
-#                             # pk_system.pk_sleep(milliseconds=random.randint(1,3))
+#                             # pk_server_fastapi.pk_sleep(milliseconds=random.randint(1,3))
 #                             pk_print(f"{i}  : title  {titles[i]}")
 #                             pk_print(f"{i}  : magnet {magnets[i]}")
 #                             webbrowser.open(magnets[i])  # 토렌트 추가
@@ -4293,7 +4293,7 @@ def empty_recycle_bin():
     # 가끔 휴지통을 열어볼까요?
     # pk_print("숨김 휴지통 열기")
     # cmd = 'explorer c:\$RECYCLE.BIN'
-    # pk_system.get_cmd_output(cmd=cmd)
+    # pk_server_fastapi.get_cmd_output(cmd=cmd)
     # 외장하드 숨김 휴지통 을 보여드릴까요
     # explorer c:\$RECYCLE.BIN
     # explorer d:\$RECYCLE.BIN
@@ -4453,19 +4453,19 @@ def speak_that_service_is_in_preparing():
 #     pk_print(f"{inspect.currentframe().f_code.co_name}()")
 #     while 1:
 #         # 윈도우즈 모든창 최소화
-#         # pk_system.press('win', 'm')
+#         # pk_server_fastapi.press('win', 'm')
 #
 #         # wrtn에게 묻기 (chatGPT 3 기반)
 #         ask_to_wrtn(question=question)
 #
 #         # 구글에게 묻기
-#         # pk_system.ask_to_google(question=question)
+#         # pk_server_fastapi.ask_to_google(question=question)
 #
 #         # bard에게 묻기
-#         # pk_system.ask_to_bard(question=question)
+#         # pk_server_fastapi.ask_to_bard(question=question)
 #
 #         # 크롬 최대화
-#         # pk_system.press('win', 'up')
+#         # pk_server_fastapi.press('win', 'up')
 #
 #         # 크롬 화면 적당한 배율로 변경
 #         press('ctrl', '0')
@@ -4474,7 +4474,7 @@ def speak_that_service_is_in_preparing():
 #         press('ctrl', '-')
 #
 #         # 크롬 이전 시트로 이동
-#         # pk_system.press("ctrl", "shift", "tab")
+#         # pk_server_fastapi.press("ctrl", "shift", "tab")
 #
 #         press("ctrl", "0")
 #         for i in range(1, 5):
@@ -4742,7 +4742,7 @@ def get_target_pid_by_process_name(target_process_name: str):
         try:
             max_cnt = max(cnts)
         except ValueError:
-            # pk_system.debug_as_cli(traceback.format_exc())
+            # pk_server_fastapi.debug_as_cli(traceback.format_exc())
             pk_print(f"{target_process_name}에 대한 현재 실행중인 pid 가 없는 것 같습니다")
             break
         for i in range(0, max_cnt):  # max(cnts):  pids 요소별 가장 " " 가 많이 든 요소의 개수
@@ -4805,7 +4805,7 @@ def translate_eng_to_kor_via_googletrans(text: str):  # 수정할것 update 되�
     # print(rf'tmp : {tmp}')
     # print(rf'type(tmp) : {type(tmp)}')
     # print(rf'len(tmp) : {len(tmp)}')
-    # pk_system_TestUtil.pause()
+    # pk_server_fastapi_TestUtil.pause()
 
     # 한수훈 씨가 만든 모듈 같다. 무료이다. 단, 안정성 보장은 안되며, google 로 부터 ip가 차단이 될 수 있다.
     # 단일 텍스트의 최대 글자수 제한은 15k입니다. 이거 로직으로 제한 해야 한다.
@@ -4981,7 +4981,7 @@ def run_targets_promised():
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
     try:
         targets = [
-            # pk_system.MUSIC_FOR_WORK,
+            # pk_server_fastapi.MUSIC_FOR_WORK,
             F_PYCHARM64_EXE,
             D_PROJECT,
             SERVICE_DIRECTORY,
@@ -5080,19 +5080,19 @@ def taskkill_useless_programs():
 #
 # def run_console_blurred_as_scheduler_as_thread(q_application: QApplication):
 #     async def run_scheduler(q_application):
-#         # schedule.every(30).minutes.do(partial(pk_system.speak_after_x_min, 30))
-#         # schedule.every().tuesday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every().wednesday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every().thursday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every().friday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every().saturday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every().sunday.at("15:00").do(pk_system.speak_today_time_info)
-#         # schedule.every(1).hour.do(pk_system.speak_server_hh_mm)
-#         # schedule.every(1).day.do(pk_system.speak_server_hh_mm)
-#         # schedule.every(1).day.at("12:30").do(pk_system.speak_server_hh_mm)
+#         # schedule.every(30).minutes.do(partial(pk_server_fastapi.speak_after_x_min, 30))
+#         # schedule.every().tuesday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every().wednesday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every().thursday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every().friday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every().saturday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every().sunday.at("15:00").do(pk_server_fastapi.speak_today_time_info)
+#         # schedule.every(1).hour.do(pk_server_fastapi.speak_server_hh_mm)
+#         # schedule.every(1).day.do(pk_server_fastapi.speak_server_hh_mm)
+#         # schedule.every(1).day.at("12:30").do(pk_server_fastapi.speak_server_hh_mm)
 #         # while 1:
 #         # schedule.run_pending()
-#         # pk_system.debug_as_cli(f"async def {inspect.currentframe().f_code.co_name}() is running...")
+#         # pk_server_fastapi.debug_as_cli(f"async def {inspect.currentframe().f_code.co_name}() is running...")
 #         # await ....sleep(1000)
 #         run_console_blurred_core_as_scheduler(q_application)
 #         pass
@@ -5146,16 +5146,16 @@ def taskkill_useless_programs():
 #         if scheduler_loop_cnt == 0:
 #             # QThread 설정
 #             # thread = CustomQthread(q_application=q_application)
-#             # thread.finished.connect(lambda: pk_system_pk_system.Tts.speak("QThread 작업이 성공되었습니다"))
+#             # thread.finished.connect(lambda: pk_server_fastapi_pk_server_fastapi.Tts.speak("QThread 작업이 성공되었습니다"))
 #             # thread.start()
 #
 #             # 프로그램 외 전역감지 단축키 이벤트 설정
 #             # shortcut_keys_up_promised = {
 #             #     # "<ctrl>+h": partial(q_wiget.toogle_rpa_window, "<ctrl>+h"),  # fail
-#             #     "<ctrl>+A": pk_system.ask_something_to_ai, # fail
-#             # "<ctrl>+H": pk_system.단축키 목록 토글, # 이거 하나만이라도 되게 만들자. # 진짜 그래도 안되면 python rpa 프로그램을 따로 하나 더 띄우게 명령어를 설정하자.
-#             # pk_system.should_i_merge_directories,
-#             # pk_system.should_i_download_youtube_as_webm,
+#             #     "<ctrl>+A": pk_server_fastapi.ask_something_to_ai, # fail
+#             # "<ctrl>+H": pk_server_fastapi.단축키 목록 토글, # 이거 하나만이라도 되게 만들자. # 진짜 그래도 안되면 python rpa 프로그램을 따로 하나 더 띄우게 명령어를 설정하자.
+#             # pk_server_fastapi.should_i_merge_directories,
+#             # pk_server_fastapi.should_i_download_youtube_as_webm,
 #             # }
 #             # keyboard_main_listener = pynput.keyboard.GlobalHotKeys(shortcut_keys_up_promised)
 #             # keyboard_main_listener.start()
@@ -5181,7 +5181,7 @@ def taskkill_useless_programs():
 #
 #         # 0시에서 24시 사이, # 분단위 스케쥴
 #         if 0 <= int(HH) <= 24 and int(ss) == 0:
-#             monitor_target_edited_and_back_up(target_abspath=pk_system_ARCHIVE_TOML)  # seconds_performance_test_results : ['11.95sec', '26.78sec', '11.94sec', '3.7sec', '11.72sec']
+#             monitor_target_edited_and_back_up(target_abspath=pk_server_fastapi_ARCHIVE_TOML)  # seconds_performance_test_results : ['11.95sec', '26.78sec', '11.94sec', '3.7sec', '11.72sec']
 #             if int(HH) == 6 and int(mm) == 30:
 #                 # speak_ments(f'{int(HH)} 시 {int(mm)}분 루틴을 시작합니다', sleep_after_play=0.65, thread_join_mode=True)  # 쓰레드가 많아지니 speak() 하면서 부정확한 재생이 늘어났다. 쓰레드의 정확한 타이밍 제어가 필요한 것 같다. 급한대로 thread_join_mode 를 만들었다)
 #                 # speak_ments(f'아침음악을 준비합니다, 아침음악을 재생할게요', sleep_after_play=0.65, thread_join_mode=True)
@@ -5327,7 +5327,7 @@ def taskkill_useless_programs():
 #     # print(context=f"TEST LOOP ERROR CNT REPORT:", is_app_instance_mode=True)
 #
 #     # 시작스케쥴러 설정
-#     # pk_system.run_scheduler_as_thread()# Qthread 가 아니라 Thread 형태 이면 동작은 하는데, 스케쥴러 내에서 pyside6 Qdialog 동작하지 않는다.
+#     # pk_server_fastapi.run_scheduler_as_thread()# Qthread 가 아니라 Thread 형태 이면 동작은 하는데, 스케쥴러 내에서 pyside6 Qdialog 동작하지 않는다.
 #     # run_scheduler_as_qthread() # 이렇게 함수에 넣으면 Process finished with exit code -1073740791 (0xC0000409) 이 에러와 함께 바로 앱 종료.
 #
 #     # QThread 로 scheduler 동작 테스트 시도
@@ -5346,14 +5346,14 @@ def taskkill_useless_programs():
 #
 #     q_application = QApplication(sys.argv)
 #     dialog = UiUtil.CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(ment=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{D_PROJECT}", btns=["실행", "실행하지 않기"], auto_click_positive_btn_after_seconds=0), is_app_instance_mode=True)
-#     # dialog = CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(context=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{pk_system.PROJECT_DIRECTORY}", buttons=["실행", "실행하지 않기"], auto_starting_seconds=10), is_app_instance_mode=True)
+#     # dialog = CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(context=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{pk_server_fastapi.PROJECT_DIRECTORY}", buttons=["실행", "실행하지 않기"], auto_starting_seconds=10), is_app_instance_mode=True)
 #     if dialog.btn_text_clicked == "실행":
 #         print(D_PROJECT)
 #         os.chdir(D_PROJECT)
 #
 #         # 프로그램 코어 진입지점
 #         run_console_blurred_core_as_scheduler(q_application)
-#         # pk_system.run_console_blurred_core_as_gui(q_application)
+#         # pk_server_fastapi.run_console_blurred_core_as_gui(q_application)
 #
 #     if dialog.btn_text_clicked == "실행하지 않기":
 #         sys.exit()
@@ -5375,13 +5375,13 @@ def taskkill_useless_programs():
 #     pyautogui.FAILSAFE = False
 #     q_application = QApplication(sys.argv)
 #     dialog = UiUtil.CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(ment=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{D_PROJECT}", btns=["실행", "실행하지 않기"], auto_click_positive_btn_after_seconds=0), is_app_instance_mode=True)
-#     # dialog = CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(context=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{pk_system.PROJECT_DIRECTORY}", buttons=["실행", "실행하지 않기"], auto_starting_seconds=10), is_app_instance_mode=True)
+#     # dialog = CustomDialog(q_application=q_application, q_wiget=UiUtil.CustomQdialog(context=f"다음의 프로젝트 디렉토리에서 자동화 프로그램이 시작됩니다\n{pk_server_fastapi.PROJECT_DIRECTORY}", buttons=["실행", "실행하지 않기"], auto_starting_seconds=10), is_app_instance_mode=True)
 #     if dialog.btn_text_clicked == "실행":
 #         print(D_PROJECT)
 #         os.chdir(D_PROJECT)
 #
 #         # 프로그램 코어 진입지점
-#         # pk_system.run_console_blurred_core_as_scheduler(q_application)
+#         # pk_server_fastapi.run_console_blurred_core_as_scheduler(q_application)
 #         run_console_blurred_core_as_gui(q_application)
 #
 #     if dialog.btn_text_clicked == "실행하지 않기":
@@ -5899,17 +5899,17 @@ def is_midnight():
 
 def gather_empty_directory(target_abspath: str):
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
-    # pk_system_pk_system.Tts.speak("타겟경로를 순회하며 리프 디렉토리만 약속된 폴더로 모읍니다")
+    # pk_server_fastapi_pk_server_fastapi.Tts.speak("타겟경로를 순회하며 리프 디렉토리만 약속된 폴더로 모읍니다")
     # dst = rf"D:\[noe] [8TB] [ext]\$leaf_directories"
-    # pk_system.make_d_leaf(dst)
+    # pk_server_fastapi.make_d_leaf(dst)
     # if os.path.isdir(target_abspath):
     #     for dirpath, dirnames, filenames in os.walk(target_abspath, topdown=False):
     #         if not dirnames and not filenames:
     #             # 하위디렉토리도 없고, 파일도 없는 경우만 leaf directory 로 간주
     #             print(f"leaf_directory : {dirpath}")
-    #             pk_system.move_without_overwrite(src=dirpath, dst=dst)
-    #     if pk_system.is_empty_directory(target_abspath) == True:
-    #         pk_system.move_without_overwrite(src=target_abspath, dst=dst)
+    #             pk_server_fastapi.move_without_overwrite(src=dirpath, dst=dst)
+    #     if pk_server_fastapi.is_empty_directory(target_abspath) == True:
+    #         pk_server_fastapi.move_without_overwrite(src=target_abspath, dst=dst)
 
     # 빈 디렉토리 제거
     make_d_leaf(leaf_directory_abspath=D_EMPTY)
@@ -6725,7 +6725,7 @@ def convert_as_zip_with_timestamp(target_abspath):
         # pk_print(rf'빽업될 디렉토리로 이동')
         os.chdir(target_dirname)
         # pk_print("os.getcwd()")
-        # pk_system.debug_as_cli(os.getcwd())
+        # pk_server_fastapi.debug_as_cli(os.getcwd())
         # pk_print("원본파일삭제")
         os.remove(target_abspath)
 
@@ -6860,7 +6860,7 @@ def kill_thread(thread_name):
 #             shutil.copytree(target_abspath, future_abspath)
 #         else:
 #             remove_target_parmanently(DIRSYNC_LOG)
-#             # 로깅 설정 및 pk_system.DIRSYNC_LOG 생성
+#             # 로깅 설정 및 pk_server_fastapi.DIRSYNC_LOG 생성
 #             import logging
 #             logging.basicConfig(filename=DIRSYNC_LOG, level=logging.DEBUG, filemode='w', encoding='utf-8')
 #             dirsync_logger = logging.getLogger('dirsync')
@@ -6868,12 +6868,12 @@ def kill_thread(thread_name):
 #             result_sync = sync(sourcedir=target_abspath, targetdir=future_abspath, action="sync", options=["--purge", "--verbose", "--force"], logger=dirsync_logger)
 #             # sync(sourcedir=future_abspath, targetdir=target_abspath , action='sync',verbose=True , logger = dirsync_logger)  # 양방향 으로 로컬동기화폴더를 만드려면 sync() 코드를 추가하여 sync() 함수가 총 2개가 targetdir 간에 sourcedir 서로 자리바뀌어 있도록 작성
 #             if result_sync:
-#                 # pk_system.DIRSYNC_LOG 내용 가져오기
+#                 # pk_server_fastapi.DIRSYNC_LOG 내용 가져오기
 #                 if os.path.exists(DIRSYNC_LOG):
 #                     lines = get_lines_of_file(DIRSYNC_LOG)[-4:-1]
 #                     lines = [sample.strip() for sample in lines]
 #                     for sample in lines:
-#                         # print(pk_system.translate_eng_to_kor_via_googletrans(sample))
+#                         # print(pk_server_fastapi.translate_eng_to_kor_via_googletrans(sample))
 #                         pk_print(rf'sample : {sample}')
 #                     pk_print(rf'len(lines) : {len(lines)}')
 #                     remove_target_parmanently(DIRSYNC_LOG)
@@ -6899,7 +6899,7 @@ def kill_thread(thread_name):
 #
 #     # 윈도우 디렉토리 경로를 WSL 경로로 변환
 #     # try:
-#     #     server_time = pk_system.get_time_as_('%Y_%m_%d_%H_%M_%S_%f')
+#     #     server_time = pk_server_fastapi.get_time_as_('%Y_%m_%d_%H_%M_%S_%f')
 #     #     target_abspath = rf"/mnt/c/{target_abspath}" \ 에서 / 로 바꿔야한다
 #     #     # future_abspath = rf"/mnt/c/{target_abspath}_{server_time}"
 #     #     future_abspath = rf"/mnt/c/{target_abspath}_sync"
@@ -7023,7 +7023,7 @@ def is_directory_changed(directory_abspath):
     # except:
     #     pass
     # try:
-    #     merged_list = pk_system_List.get_list_added_elements_alternatively(current_directory_state, previous_directory_state)  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
+    #     merged_list = pk_server_fastapi_List.get_list_added_elements_alternatively(current_directory_state, previous_directory_state)  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
     #     [print(sample) for sample in merged_list[0:10]]
     #     print(rf'type(merged_list) : {type(merged_list)}')
     #     print(rf'len(merged_list) : {len(merged_list)}')
@@ -7036,13 +7036,13 @@ def is_directory_changed(directory_abspath):
 
     # 변화 감지 ( 디테일, 느림)
     # try:
-    #     added_files = pk_system.get_added_files(previous_directory_state, current_directory_state)
+    #     added_files = pk_server_fastapi.get_added_files(previous_directory_state, current_directory_state)
     #     if added_files:
     #         print(f"추가된 파일 개수: {len(added_files)} 추가된 파일: {added_files}")
-    #     deleted_files = pk_system.get_deleted_files(previous_directory_state, current_directory_state)
+    #     deleted_files = pk_server_fastapi.get_deleted_files(previous_directory_state, current_directory_state)
     #     if deleted_files:
     #         print(f"삭제된 파일 개수: {len(deleted_files)} 삭제된 파일: {deleted_files}")
-    #     modified_files = pk_system.get_modified_files(previous_directory_state, current_directory_state)
+    #     modified_files = pk_server_fastapi.get_modified_files(previous_directory_state, current_directory_state)
     #     if modified_files:
     #         print(f"변경된 파일 개수: {len(modified_files)} 변경된 파일: {modified_files}")
     # except:
@@ -7148,7 +7148,7 @@ def rename_target(current_target_abspath, future_target_abspath):
 #             for target in os.listdir(directory_a):  # os.listdir 은 without walking 으로 동작한다
 #                 print(rf'target : {directory_a}/{target}')
 #                 move_target_without_overwrite(target_abspath=rf'{directory_a}/{target}', dst=dst)
-#                 # pk_system.move_target_to_trash_bin(directory_a)
+#                 # pk_server_fastapi.move_target_to_trash_bin(directory_a)
 #             for target in os.listdir(directory_b):  # os.listdir 은 without walking 으로 동작한다
 #                 print(rf'target : {directory_b}/{target}')
 #                 move_target_without_overwrite(target_abspath=rf'{directory_b}/{target}', dst=dst)
@@ -7314,7 +7314,7 @@ def shutdown_this_computer():
     import inspect
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
     get_cmd_output(rf'%windir%\System32\Shutdown.exe -s ')
-    # pk_system.get_cmd_output('Shutdown.exe -s ')
+    # pk_server_fastapi.get_cmd_output('Shutdown.exe -s ')
 
 
 def enter_power_saving_mode():
@@ -7570,7 +7570,7 @@ def move_without_overwrite_via_robocopy(target_abspath, dst):  # 명령어 자�
     pk_print(f"{inspect.currentframe().f_code.co_name}()")
     try:
         pk_print(f'타겟이동 시도')
-        # pk_system.get_cmd_output(rf'robocopy "{target_abspath}" "{dst}" /MOVE')
+        # pk_server_fastapi.get_cmd_output(rf'robocopy "{target_abspath}" "{dst}" /MOVE')
         if os.path.exists(rf'{dst}/{os.path.dirname(target_abspath)}'):
             move_target_to_trash_bin(target_abspath)
 
@@ -7938,8 +7938,8 @@ def speak_ments(ment, sleep_after_play=1.00, thread_join_mode=False):
         #     exit_event.clear()  # 종료 이벤트 객체 초기화
 
         # pyglet을 실행하는 스레드 종료
-        # pk_system.kill_thread(thread_name="thread_for_speak")
-        # pk_system.kill_thread(thread_name="thread_for_run_loop_for_speak_as_async")
+        # pk_server_fastapi.kill_thread(thread_name="thread_for_speak")
+        # pk_server_fastapi.kill_thread(thread_name="thread_for_run_loop_for_speak_as_async")
 
         # 재생 중인 사운드 리소스를 중지하는 함수
         def stop_all_sounds():
@@ -7949,21 +7949,21 @@ def speak_ments(ment, sleep_after_play=1.00, thread_join_mode=False):
 
         stop_all_sounds()
         if pyglet_player != None:
-            # if pk_system.pyglet_player.playing == True:
+            # if pk_server_fastapi.pyglet_player.playing == True:
             # pyglet.app.exit()
-            # pk_system.pyglet_player.delete()
-            # pk_system.pyglet_player = None
-            # pk_system.pyglet_player.pause()
+            # pk_server_fastapi.pyglet_player.delete()
+            # pk_server_fastapi.pyglet_player = None
+            # pk_server_fastapi.pyglet_player.pause()
             # pyglet.app.platform_event_loop.pause()
-            # pk_system.pyglet_player.pause()
-            # pk_system.pyglet_player.delete()
+            # pk_server_fastapi.pyglet_player.pause()
+            # pk_server_fastapi.pyglet_player.delete()
 
-            # pk_system.pyglet_player 을 del 을 한 경우. 의도한대로 pyglet 의 play() 동작은 중지가 되는데.
-            # pk_system.pyglet_player 에 대한 참조가 불가능해진다. 다른 참조법을 적용해보자. 시도해보니 pk_system.pyglet_player 는 더이상 쓸 수가 없다.
-            # 재활용해야하는 pk_system.pyglet_player는 더이상 쓸 수 없어졌다.
-            # del pk_system.pyglet_player
-            # 혹시 몰라서 tmp 변수에 참조시켜서 del 시도 해보았는데, pk_system.pyglet_player에 대해 참조는 가능해 보인다.
-            # tmp = pk_system.pyglet_player
+            # pk_server_fastapi.pyglet_player 을 del 을 한 경우. 의도한대로 pyglet 의 play() 동작은 중지가 되는데.
+            # pk_server_fastapi.pyglet_player 에 대한 참조가 불가능해진다. 다른 참조법을 적용해보자. 시도해보니 pk_server_fastapi.pyglet_player 는 더이상 쓸 수가 없다.
+            # 재활용해야하는 pk_server_fastapi.pyglet_player는 더이상 쓸 수 없어졌다.
+            # del pk_server_fastapi.pyglet_player
+            # 혹시 몰라서 tmp 변수에 참조시켜서 del 시도 해보았는데, pk_server_fastapi.pyglet_player에 대해 참조는 가능해 보인다.
+            # tmp = pk_server_fastapi.pyglet_player
             # del tmp
             # del 쓰는 것을 포기하자
 
@@ -7976,9 +7976,9 @@ def speak_ments(ment, sleep_after_play=1.00, thread_join_mode=False):
             pyglet_player = pyglet.media.Player()
             if pyglet_player.playing == True:
                 pyglet_player.pause()
-                # pk_system.pyglet_player.delete()
-                # del pk_system.pyglet_player
-                # tmp = pk_system.pyglet_player
+                # pk_server_fastapi.pyglet_player.delete()
+                # del pk_server_fastapi.pyglet_player
+                # tmp = pk_server_fastapi.pyglet_player
     else:
         pk_print(ment=f"{inspect.currentframe().f_code.co_name}() 는 리눅스 환경에서 테스트가 필요합니다.")
 
@@ -8000,8 +8000,8 @@ def speak_ments(ment, sleep_after_play=1.00, thread_join_mode=False):
             # print(rf'type(ments) : {type(ments)}')
             # print(rf'len(ments) : {len(ments)}')
             for ment in ments:
-                # pk_system_pk_system.Tts.speak(ment)
-                # thread = threading.Thread(target=partial(pk_system_pk_system.Tts.run_loop_for_speak_as_async, ment), name ="thread_for_run_loop_for_speak_as_async")
+                # pk_server_fastapi_pk_server_fastapi.Tts.speak(ment)
+                # thread = threading.Thread(target=partial(pk_server_fastapi_pk_server_fastapi.Tts.run_loop_for_speak_as_async, ment), name ="thread_for_run_loop_for_speak_as_async")
                 # thread.start()
                 # if thread.is_alive():
                 #     thread.join()
@@ -8132,10 +8132,10 @@ def speak_ment_without_async_and_return_last_word_mp3_length(ment, sleep_after_p
                     speak_ments(ment, sleep_after_play=0.65)
                 break
             if type(ment) == str:
-                # while pk_system.is_speak_as_async_running:
-                #     pk_system.debug_as_cli(f"def {inspect.currentframe().f_code.co_name}() 에 대한 다른 쓰레드를 기다리는 중입니다")
+                # while pk_server_fastapi.is_speak_as_async_running:
+                #     pk_server_fastapi.debug_as_cli(f"def {inspect.currentframe().f_code.co_name}() 에 대한 다른 쓰레드를 기다리는 중입니다")
                 #     pass
-                # pk_system.is_speak_as_async_running = True # 쓰레드상태 사용 중으로 업데이트
+                # pk_server_fastapi.is_speak_as_async_running = True # 쓰레드상태 사용 중으로 업데이트
 
                 cache_mp3 = rf'{D_PROJECT}\$cache_mp3'
                 make_d_leaf(leaf_directory_abspath=cache_mp3)
@@ -8186,13 +8186,13 @@ def speak_ment_without_async_and_return_last_word_mp3_length(ment, sleep_after_p
                     # 프로세스 세션을 빼앗지 않고 mp3재생하는 다른 방법
                     # playsound.playsound(os.path.abspath(ment_mp3))
 
-                    # pk_system.debug_as_cli(rf'프로세스 세션을 빼앗지 않고 mp3재생')
+                    # pk_server_fastapi.debug_as_cli(rf'프로세스 세션을 빼앗지 않고 mp3재생')
                     ment_mp3 = os.path.abspath(ment_mp3)
                     pk_print(rf'{ment_mp3}')
                     try:
                         # 재생
                         source = pyglet.media.load(ment_mp3)
-                        # pyglet_player = pk_system.pyglet_player
+                        # pyglet_player = pk_server_fastapi.pyglet_player
                         # pyglet_player.queue(source)
                         source.play()  # 웃긴다 이거 이렇게는 재생이 된다.
 
@@ -8206,7 +8206,7 @@ def speak_ment_without_async_and_return_last_word_mp3_length(ment, sleep_after_p
                         pk_sleep(length_of_mp3 * sleep_after_play)
 
                         return length_of_mp3
-                        # pk_system.is_speak_as_async_running = False # 쓰레드상태 사용종료로 업데이트
+                        # pk_server_fastapi.is_speak_as_async_running = False # 쓰레드상태 사용종료로 업데이트
                     except FileNotFoundError:
                         pk_print(f"{ment_mp3} 재생할 파일이 없습니다")
                     except:
@@ -8220,10 +8220,10 @@ def speak_ment_without_async_and_return_last_word_mp3_length(ment, sleep_after_p
                 except Exception:
                     pk_print("%%%FOO%%%")
 
-                # pk_system.debug_as_cli(rf'불필요 파일 삭제')
+                # pk_server_fastapi.debug_as_cli(rf'불필요 파일 삭제')
                 os.system(f'echo y | del /f "{ment__mp3}" >nul 2>&1')
 
-                # pk_system.debug_as_cli(rf'중간로깅')
+                # pk_server_fastapi.debug_as_cli(rf'중간로깅')
                 pk_print(log_title=f"TTS 재생시도")
             break
     except Exception:

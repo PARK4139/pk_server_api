@@ -34,4 +34,4 @@ RUN /container_workspace/.venv/bin/pip install --no-cache-dir -r requirements.tx
 
 COPY . .
 
-CMD ["/container_workspace/.venv/bin/python", "-m", "uvicorn", "project_fastapi.test_project_fastapi:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]
+CMD ["/container_workspace/.venv/bin/python", "-m", "uvicorn", "project_fastapi.main_pk:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]

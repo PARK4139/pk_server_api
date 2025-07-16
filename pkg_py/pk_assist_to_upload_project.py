@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
         pk_colorama_init(autoreset=True)
 
-        git_repo_url = get_pk_token(f_token=rf"{D_PKG_TOML}/pk_token_pk_system_github_repo_url.toml", initial_str="")
+        git_repo_url = get_pk_token(f_token=rf"{D_PKG_TOML}/pk_token_pk_server_fastapi_github_repo_url.toml", initial_str="")
         d_working = D_PROJECT
         branch_n = 'dev'
         assist_to_upload_pnx_to_git(d_working=d_working, git_repo_url=git_repo_url,branch_n=branch_n)

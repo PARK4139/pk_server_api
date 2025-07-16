@@ -7,7 +7,7 @@ __pycache__
 .idea
 .vscode
 .venv
-pk_system.egg-info
+pk_server_fastapi.egg-info
 # pkg_cmd
 # pkg_cloud
 # pkg_dpl
@@ -44,7 +44,7 @@ pk_token_github_pat.toml
 # docker push by manual.bat
 # memo_how.toml
 # memo_work.toml
-# pk_system_telegram_bot_session.session
+# pk_server_fastapi_telegram_bot_session.session
 # requirements.txt
 # setup.py
 # telegram_chat_id.txt

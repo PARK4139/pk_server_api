@@ -41,8 +41,8 @@ from pkg_friday import MySqlUtil
 # from app.routes import index, auth
 
 
-# logger = logging.getLogger('pk_system_test_logger')
-# hdlr = logging.FileHandler('pk_system_logger.log')
+# logger = logging.getLogger('pk_server_fastapi_test_logger')
+# hdlr = logging.FileHandler('pk_server_fastapi_logger.log')
 # hdlr.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 # logger.addHandler(hdlr)
 # logger.setLevel(logging.INFO)

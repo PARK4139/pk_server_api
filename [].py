@@ -18,8 +18,8 @@ from pkg_py.pk_core import pk_sleep
 from pkg_py.pk_colorful_cli_util import pk_print
 
 # LOGGER SET UP
-# logger = logging.getLogger('pk_system_test_logger')
-# hdlr = logging.FileHandler('pk_system_logger.log')
+# logger = logging.getLogger('pk_server_fastapi_test_logger')
+# hdlr = logging.FileHandler('pk_server_fastapi_logger.log')
 # hdlr.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 # logger.addHandler(hdlr)
 # logger.setLevel(logging.INFO)
@@ -317,34 +317,34 @@ def test_core_etc():
         # cmd = rf'"{test_helping_bat_file}" {test_target_file}' # FAIL  # 가상환경에서 실행되나  콘솔에 사용자 입력만 출력됨
         # cmd = rf'call cmd /c "{test_helping_bat_file}" {test_target_file}'  # FAIL  # 가상환경에서 실행되나 콘솔에 사용자 입력만 출력됨
         # cmd = rf'start cmd /c "{test_helping_bat_file}" {test_target_file}'  # SUCCESS # 가상환경에서 실행 # 새 cmd.exe 창에서 열린다 #이걸로 선정함
-        # pk_system.get_cmd_output(cmd)
+        # pk_server_fastapi.get_cmd_output(cmd)
 
         # pk_print(f"test")
         # print(f"test")
 
-        # pk_system.ask_to_google(question)
-        # pk_system.ask_to_bard(question)
-        # pk_system.ask_to_wrtn(question)
+        # pk_server_fastapi.ask_to_google(question)
+        # pk_server_fastapi.ask_to_bard(question)
+        # pk_server_fastapi.ask_to_wrtn(question)
 
-        # pk_system.speak_alt("테스트")
+        # pk_server_fastapi.speak_alt("테스트")
 
         # app = QApplication()
-        # pk_system.get_comprehensive_weather_information_from_web()
+        # pk_server_fastapi.get_comprehensive_weather_information_from_web()
         # app.exec()
 
         # __________________________________________________________________________________________________________________________________ TESTED SECTION 2
-        # dialog =  pkg_pk_system_for_linux.CustomDialog(contents="테스트를 시작할까요?", buttons=["시작하기", "시작하지 않기"])
+        # dialog =  pkg_pk_server_fastapi_for_linux.CustomDialog(contents="테스트를 시작할까요?", buttons=["시작하기", "시작하지 않기"])
         # dialog.exec()
         # dialog.show()
 
         # global dialog
-        # dialog = pkg_pk_system_for_linux.CustomDialog(contents="다운로드하고 싶은 URL을 제출해주세요?", buttons=["제출", "제출하지 않기"], is_input_text_box=True)
+        # dialog = pkg_pk_server_fastapi_for_linux.CustomDialog(contents="다운로드하고 싶은 URL을 제출해주세요?", buttons=["제출", "제출하지 않기"], is_input_text_box=True)
         # dialog.show()
         # text_of_clicked_btn = dialog.text_of_clicked_btn
         # pk_print("text_of_clicked_btn")
         # pk_print(text_of_clicked_btn)
         # if text_of_clicked_btn == "제출":
-        #     pk_system.download_from_youtube_to_webm(dialog.box_for_editing_input_text.text())
+        #     pk_server_fastapi.download_from_youtube_to_webm(dialog.box_for_editing_input_text.text())
 
         # # CustomDialog 를 쓰레드 안에서 띄우기
         # import sys
@@ -359,7 +359,7 @@ def test_core_etc():
         #         self.show_dialog_signal.emit()
         # def show_dialog():
         pk_print(f"{inspect.currentframe().f_code.co_name}()")
-        #     from pkg_pk_system_for_linux import CustomDialog
+        #     from pkg_pk_server_fastapi_for_linux import CustomDialog
         #     dialog = CustomDialog(contents="테스트를 시작할까요?", buttons=["시작하기", "시작하지 않기"])
         #     # dialog.exec()
         #     dialog.show()
@@ -405,17 +405,17 @@ def test_core_etc():
         # find_element(By.CLASS_NAME, "class name")
         # find_element(By.CSS_SELECTOR, "css selector")
 
-        # foo = ",".join(key for key in pk_system.keyboards).split(",")# DICTIONARY TO STR AS CSV STYLE
+        # foo = ",".join(key for key in pk_server_fastapi.keyboards).split(",")# DICTIONARY TO STR AS CSV STYLE
         # print(foo)
 
-        # foo = [keyValue for keyValue in pk_system.keyboards]
+        # foo = [keyValue for keyValue in pk_server_fastapi.keyboards]
         # print(foo)
 
-        # for key, value in pk_system.keyboards.items():
+        # for key, value in pk_server_fastapi.keyboards.items():
         #     print(key, value)
-        # for key, value in pk_system.keyboards.items():
+        # for key, value in pk_server_fastapi.keyboards.items():
         #     print(key)
-        # for key, value in pk_system.keyboards.items():
+        # for key, value in pk_server_fastapi.keyboards.items():
         #     print(value)
 
         # 파이썬 리스트 특정요소를 특정문자를 기준으로 두 요소로 분리해서 그 특정요소 리스트 자리에 그대로 삽입하는 코드   ['1','온도많음','2'] -> ['1','온도','많음','2']
@@ -474,11 +474,11 @@ def test_core_etc():
         sample = "".join(sample)  # from ["a", "b", "c"] to "abc"
         # abspaths을 mtimes 에 맞춰서 내림차순 정렬(파일변경일이 현시점에 가까운 시간인 것부터 처리하기 위함)
         # abspaths_and_mtimes = _get_processed_abspaths_and_mtimes(abspaths, mtimes)# 쓰레드 5개로 분산처리해도 5분 걸림...
-        # abspaths_and_mtimes = pk_system_List.get_list_added_elements_alternatively(abspaths, mtimes)  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
-        # abspaths_and_mtimes = pk_system_List.get_nested_list_grouped_by_each_two_elements_in_list(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to [["a","b"], ["c","d"]]
-        # abspaths_and_mtimes = pk_system_List.get_nested_list_sorted_by_column_index(nested_list=abspaths_and_mtimes, column_index=1, decending_order=True)
-        # abspaths_and_mtimes = pk_system_List.get_list_seperated_by_each_elements_in_nested_list(abspaths_and_mtimes)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
-        # abspaths_and_mtimes = pk_system_List.get_list_each_two_elements_joined(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
+        # abspaths_and_mtimes = pk_server_fastapi_List.get_list_added_elements_alternatively(abspaths, mtimes)  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
+        # abspaths_and_mtimes = pk_server_fastapi_List.get_nested_list_grouped_by_each_two_elements_in_list(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to [["a","b"], ["c","d"]]
+        # abspaths_and_mtimes = pk_server_fastapi_List.get_nested_list_sorted_by_column_index(nested_list=abspaths_and_mtimes, column_index=1, decending_order=True)
+        # abspaths_and_mtimes = pk_server_fastapi_List.get_list_seperated_by_each_elements_in_nested_list(abspaths_and_mtimes)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
+        # abspaths_and_mtimes = pk_server_fastapi_List.get_list_each_two_elements_joined(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
         # samples = [f"{key}: {value}" for key, value in samples.items()]  # from dict to ["key: value\n"]
         # samples = get_list_added_elements_alternatively(dirnames, tree_levels)  # from [][] to []
         # abspaths_and_mtimes = get_list_each_two_elements_joined(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
@@ -594,7 +594,7 @@ def test_core_etc():
         #
         #     try:
         #         cmd = f'dir /s /a /w "{directory}"'
-        #         lines = pk_system.get_cmd_output(cmd=cmd)
+        #         lines = pk_server_fastapi.get_cmd_output(cmd=cmd)
         #         # print(lines[-3:]) # 리스트 내에서 뒤에서 3개만 출력
         #         files_count = lines[-3].split("File(s)")[0].strip()
         #         return int(files_count)
@@ -602,9 +602,9 @@ def test_core_etc():
         #         pass
 
         # files_to_exclude = [
-        #     pk_system.DB_TOML,
-        #     pk_system.SUCCESS_LOG,
-        #     pk_system.LOCAL_PKG_CACHE_FILE,
+        #     pk_server_fastapi.DB_TOML,
+        #     pk_server_fastapi.SUCCESS_LOG,
+        #     pk_server_fastapi.LOCAL_PKG_CACHE_FILE,
         # ]
         # current_target_files = []
         # for root, dirs, files in os.walk(directory_abspath):
@@ -612,13 +612,13 @@ def test_core_etc():
         #         file_abspath = os.path.join(root, file)  # 파일 절대 경로
         #         if file_abspath not in files_to_exclude:
         #             mtime = os.path.getmtime(file_abspath)  # 파일 생성 일자
-        #             file_abspath = pk_system.get_str_replaced_special_characters(target=file_abspath, replacement="_")  # 파일 경로에서 특수문자 제거처리. toml 에 들어가지 않음.
+        #             file_abspath = pk_server_fastapi.get_str_replaced_special_characters(target=file_abspath, replacement="_")  # 파일 경로에서 특수문자 제거처리. toml 에 들어가지 않음.
         #             current_target_files.append([file_abspath, mtime])
         # # abspaths = [file_info[0] for file_info in current_target_files]  # file_info_list 이미 생성된 것이기때문에 이 리스트 컴프리헨션 에서는 또 돌지 않는다고 한다.
         # # mtimes = [file_info[1] for file_info in current_target_files]
-        # current_target_files = pk_system_List.get_nested_list_sorted_by_column_index(nested_list=current_target_files, column_index=1, decending_order=True)
-        # current_target_files = pk_system_List.get_list_seperated_by_each_elements_in_nested_list(current_target_files)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
-        # current_target_files = pk_system_List.get_list_each_two_elements_joined(current_target_files)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
+        # current_target_files = pk_server_fastapi_List.get_nested_list_sorted_by_column_index(nested_list=current_target_files, column_index=1, decending_order=True)
+        # current_target_files = pk_server_fastapi_List.get_list_seperated_by_each_elements_in_nested_list(current_target_files)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
+        # current_target_files = pk_server_fastapi_List.get_list_each_two_elements_joined(current_target_files)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
         # abspaths_and_mtimes = "\n".join(abspaths_and_mtimes)  # list to str
         # current_directory_state = "\n".join([f"{key}: {value}" for key, value in current_directory_state])  # list to str ([tuple] to str) (개행된 str)
         # current_directory_state = current_directory_state.split("\n")  # str to [str] (개행된 str)
@@ -665,11 +665,11 @@ def test_core_etc():
         #     # 비동기 이벤트 함수 설정 ( advanced  )
         #     async def is_containing_special_characters(start_index: int, end_index: int):
         pk_print(f"{inspect.currentframe().f_code.co_name}()")
-        #         abspaths_and_mtimes = pk_system_List.get_list_added_elements_alternatively(abspaths[start_index:end_index], mtimes[start_index:end_index])  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
-        #         abspaths_and_mtimes_ = pk_system_List.get_nested_list_grouped_by_each_two_elements_in_list(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to [["a","b"], ["c","d"]]
-        #         abspaths_and_mtimes__ = pk_system_List.get_nested_list_sorted_by_column_index(nested_list=abspaths_and_mtimes_, column_index=1, decending_order=True)
-        #         abspaths_and_mtimes___ = pk_system_List.get_list_seperated_by_each_elements_in_nested_list(abspaths_and_mtimes__)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
-        #         abspaths_and_mtimes____[start_index:end_index] = pk_system_List.get_list_each_two_elements_joined(abspaths_and_mtimes___)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
+        #         abspaths_and_mtimes = pk_server_fastapi_List.get_list_added_elements_alternatively(abspaths[start_index:end_index], mtimes[start_index:end_index])  # from [1, 2, 3] + [ x, y, z] to [1, x, 2, y, 3, z]
+        #         abspaths_and_mtimes_ = pk_server_fastapi_List.get_nested_list_grouped_by_each_two_elements_in_list(abspaths_and_mtimes)  # from ["a", "b", "c", "d"] to [["a","b"], ["c","d"]]
+        #         abspaths_and_mtimes__ = pk_server_fastapi_List.get_nested_list_sorted_by_column_index(nested_list=abspaths_and_mtimes_, column_index=1, decending_order=True)
+        #         abspaths_and_mtimes___ = pk_server_fastapi_List.get_list_seperated_by_each_elements_in_nested_list(abspaths_and_mtimes__)  # from [["a","b"], ["c","d"]] to ["a", "b", "c", "d"]
+        #         abspaths_and_mtimes____[start_index:end_index] = pk_server_fastapi_List.get_list_each_two_elements_joined(abspaths_and_mtimes___)  # from ["a", "b", "c", "d"] to ["ab", "cd"]
         #
         #     # 비동기 이벤트 루프 설정
         #     def run_async_event_loop(start_index: int, end_index: int ):
@@ -713,7 +713,7 @@ def test_core_etc():
         # lzw 알고리즘으로 문자열 압축부터 해야할듯... 10개 샘플 넣었는데 암호문의 길이가 1744자 나왔음....
 
         # 트라이 구조 유사하게 텍스트 교체 시도
-        # pk_system_PerformanceHandler.gen_dictionary_for_monitor_target_edited_and_bkup(directory_abspath= directory_abspath)
+        # pk_server_fastapi_PerformanceHandler.gen_dictionary_for_monitor_target_edited_and_bkup(directory_abspath= directory_abspath)
         # pause()
 
         # 5만줄을 쓰레드로 나누어 처리, 너무 느리다.
@@ -829,7 +829,7 @@ def test_core_etc():
         pk_print(f"{inspect.currentframe().f_code.co_name}()")
         #     # 예약된 단어 맵으로 암호화
         #     for index, abspaths_and_mtime in enumerate(abspaths_and_mtimes[start_index:end_index], start=start_index):
-        #         tmp = pk_system_Performance.dictionary_for_monitoring_performance.items()
+        #         tmp = pk_server_fastapi_Performance.dictionary_for_monitoring_performance.items()
         #         for key, value in tmp:
         #             if key in abspaths_and_mtime:
         #                 abspaths_and_mtimes[index] = abspaths_and_mtime.replace(key, value)
@@ -860,13 +860,13 @@ def test_core_etc():
         # AES 암호화
         # key: bytes = b'0123456789abcdef'  # AES 키 설정 (16바이트 - 128비트)
         # plaintext: bytes = abspaths_and_mtimes.encode('utf-8')  # str to bytes  # 문자열을 UTF-8로 인코딩하여 바이트 코드로 변환
-        # ciphertext = pk_system_CipherUtil.aes_encrypt(key, plaintext)  # bytes to bytes
+        # ciphertext = pk_server_fastapi_CipherUtil.aes_encrypt(key, plaintext)  # bytes to bytes
         # print(rf'ciphertext : {ciphertext}')
         # print(rf'type(ciphertext) : {type(ciphertext)}')
         # print(rf'len(ciphertext) : {len(ciphertext)}')
 
         # 복호화
-        # decrypted_text = pk_system_CipherUtil.aes_decrypt(key, ciphertext)
+        # decrypted_text = pk_server_fastapi_CipherUtil.aes_decrypt(key, ciphertext)
         # print("복호화 결과")
         # print(rf'decrypted_text.decode() : {decrypted_text.decode()}')
         # print(rf'type(decrypted_text.decode()) : {type(decrypted_text.decode())}')
@@ -1261,7 +1261,7 @@ def update_ticker_xlsx():
     # pk_print(f'df_xlsx : \n{df_xlsx}')
     # pk_print(rf'type(df_xlsx) : {type(df_xlsx)}')
     # pk_print(rf'len(df_xlsx) : {len(df_xlsx)}')
-    # df = pd.read_csv(rf"{pkg_pk_system_for_linux.pk_system.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx")
+    # df = pd.read_csv(rf"{pkg_pk_server_fastapi_for_linux.pk_server_fastapi.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx")
     # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
     # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
     # df = pd.read_html(FILE_HTML)
@@ -2168,7 +2168,7 @@ def update_stack_info_xlsx_watched_latest():
     pk_print(f'df : \n{df}')
     pk_print(rf'type(df) : {type(df)}')
     pk_print(rf'len(df) : {len(df)}')
-    # df = pd.read_csv(rf"{pkg_pk_system_for_linux.pk_system.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx")
+    # df = pd.read_csv(rf"{pkg_pk_server_fastapi_for_linux.pk_server_fastapi.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx")
     # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
     # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
     # df = pd.read_html(FILE_HTML)
@@ -2177,9 +2177,9 @@ def update_stack_info_xlsx_watched_latest():
     # df.groupby('ticker')['Adj Close'].plot(legend=True)
     plt.title('주식 관심종목 최신종가(Close) 티커별 비교')
     plt.rcParams['font.family'] = 'Malgun Gothic'  # 한글폰트 적용
-    # font_abspath = rf"{pkg_pk_system_for_linux.pk_system.PROJECT_DIRECTORY}\$cache_fonts\GmarketSans\GmarketSansTTFLight.ttf"
-    # # font_abspath = rf"{pkg_pk_system_for_linux.pk_system.PROJECT_DIRECTORY}\$cache_fonts\Rubik_Doodle_Shadow\RubikDoodleShadow-Regular.ttf" # 너무 귀여운 입체감 있는 영어폰트
-    # plt.rcParams['font.family'] = pkg_pk_system_for_linux.pk_system.get_font_name_for_mataplot(font_abspath)
+    # font_abspath = rf"{pkg_pk_server_fastapi_for_linux.pk_server_fastapi.PROJECT_DIRECTORY}\$cache_fonts\GmarketSans\GmarketSansTTFLight.ttf"
+    # # font_abspath = rf"{pkg_pk_server_fastapi_for_linux.pk_server_fastapi.PROJECT_DIRECTORY}\$cache_fonts\Rubik_Doodle_Shadow\RubikDoodleShadow-Regular.ttf" # 너무 귀여운 입체감 있는 영어폰트
+    # plt.rcParams['font.family'] = pkg_pk_server_fastapi_for_linux.pk_server_fastapi.get_font_name_for_mataplot(font_abspath)
     # 폰트가 깨진것 같을 때, 캐싱된 폰트 캐시 삭제하기 위해 사용
     # import matplotlib.font_manager as fm
     # fm._rebuild()
@@ -2640,7 +2640,7 @@ def test(text_to_search: str):
         # fig.write_image("df_fig.pdf")
         # fig.write_html("df_fig.html")
 
-        # # FILE_XLS = rf"{pkg_pk_system_for_linux.pk_system.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx"
+        # # FILE_XLS = rf"{pkg_pk_server_fastapi_for_linux.pk_server_fastapi.PROJECT_DIRECTORY}\$cache_recycle_bin\test.xlsx"
         # df = pd.read_csv(FILE_CSV)
         # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
         # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
@@ -2831,7 +2831,7 @@ if __name__ == '__main__':
         # update_stack_info_xlsx_watched_latest()
         test(text_to_search="일리윤 세라마이드 아토 로션")
         # ____________________________________________________________
-        # pk_system.pk_sleep(milliseconds=1000)# 루프 텀 설정
+        # pk_server_fastapi.pk_sleep(milliseconds=1000)# 루프 텀 설정
         # ____________________________________________________________
         # 의도적 트러블 발생 테스트
         # raise shutil.Error("의도적 트러블 발생")

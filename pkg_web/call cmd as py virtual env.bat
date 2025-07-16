@@ -80,7 +80,7 @@ pause
 :: 배치파일에서 argument 받기
 :: set "FIRST_ARGUMENT=%1"
 :: set "promised_space=      "
-:: echo "pk_system_ command >%promised_space% FIRST_ARGUMENT:{%FIRST_ARGUMENT%}"
+:: echo "pk_server_fastapi_ command >%promised_space% FIRST_ARGUMENT:{%FIRST_ARGUMENT%}"
 
 
 :: RUN PYTHON PROGRAM

@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 
 # 수정 대상 디렉토리 설정
-target_dir = os.path.expanduser(r'~\Downloads\pk_system\.venv')
+target_dir = os.path.expanduser(r'~\Downloads\pk_server_fastapi\.venv')
 
 # USERPROFILE 경로 가져오기
 user_profile_path = os.getenv('USERPROFILE')
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 # import os
 #
 # # 수정 대상 디렉토리 설정
-# target_dir = os.path.expanduser(r'~\Downloads\pk_system\.venv')
+# target_dir = os.path.expanduser(r'~\Downloads\pk_server_fastapi\.venv')
 #
 # # USERPROFILE 경로 가져오기
 # user_profile_path = os.getenv('USERPROFILE')

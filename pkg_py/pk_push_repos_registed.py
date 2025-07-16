@@ -10,7 +10,7 @@ from pkg_py.pk_core_constants import D_PROJECT, STAMP_UNIT_TEST_EXCEPTION_DISCOV
 if __name__ == "__main__":
     try:
         pk_colorama_init(autoreset=True)
-        f_bat = f'call "{D_PROJECT_PARENTS}\pk_system\pk_push_project_to_github.bat"'
+        f_bat = f'call "{D_PROJECT_PARENTS}\pk_server_fastapi\pk_push_project_to_github.bat"'
         std_list = cmd_to_os(f_bat)
 
         f_bat = f'call "{D_PROJECT_PARENTS}\pk_memo\pk_push_project_to_github.bat"'

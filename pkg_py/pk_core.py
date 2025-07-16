@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-  # python 3.x 하위버전 호환을 위한코드
-__author__ = 'pk_system'
+__author__ = 'pk_server_fastapi'
 
 from functools import lru_cache
 from typing import TypeVar, List
@@ -977,7 +977,7 @@ def get_list_element_duplicated(working_list):
     return items_duplicated
 
 
-def encode_via_pk_system(text_plain):
+def encode_via_pk_server_fastapi(text_plain):
     import inspect
     func_n = inspect.currentframe().f_code.co_name
     text_plain = text_plain.replace("8", "2")
@@ -1332,8 +1332,8 @@ async def move_f_via_telegram_bot(f):
 
     # @BotFather
     # /newbot
-    # pk_system_t_bot
-    # pk_system_bot
+    # pk_server_fastapi_t_bot
+    # pk_server_fastapi_bot
     # t.me/pk_bot
     # 76~yIXuSimQo~
     # /start
@@ -1735,11 +1735,11 @@ def make_shellscript_version_new_via_hard_coded_v_1_0_0():
 
     # 절대 경로를 사용하여 대상 f의 절대 경로를 입력
     file_pnxs = [
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/vpc_info_collector.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_114.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_front.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_rear.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_reset.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/vpc_info_collector.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_114.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_front.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_rear.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_reset.sh"),
     ]
 
     # 각 f을 복사하여 버전별로 관리
@@ -1813,13 +1813,13 @@ def make_shellscript_version_new_via_hard_coded_v_1_0_1():
                 print(f"'{f}' f이 '{dst}' _d_로 이동되었습니다.")
 
     file_pnxs = [  # 상대경로
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/vpc_info_collector.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_114.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_front.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_rear.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_ip_connection_update_for_reset.sh"),
-        os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_evm_updater_for_front.sh"),
-        # os.path.expanduser(r"~/Downloads/pk_working/pk_system/pk_evm_updater_for_rear.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/vpc_info_collector.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_114.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_front.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_rear.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_ip_connection_update_for_reset.sh"),
+        os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_evm_updater_for_front.sh"),
+        # os.path.expanduser(r"~/Downloads/pk_working/pk_server_fastapi/pk_evm_updater_for_rear.sh"),
     ]
 
     for file_pnx in file_pnxs:
@@ -5447,7 +5447,7 @@ def do_random_schedules():
     import random
     func_n = inspect.currentframe().f_code.co_name
     int_random = random.randint(0, 7)
-    # pk_system_Tts.speak(f'랜덤숫자 {int_random} 나왔습니다')
+    # pk_server_fastapi_Tts.speak(f'랜덤숫자 {int_random} 나왔습니다')
     # mkmk
     if int_random == 0:
         pass
@@ -5981,7 +5981,7 @@ def download_from_youtube_to_webm(urls):
         break
 
 
-# deprecated method by pk_system_
+# deprecated method by pk_server_fastapi_
 # def print_police_line(police_line_ment):
 
 #     police_line=''
@@ -7816,7 +7816,7 @@ def chrome_remote_desktop(hostname):
 
     # PIN 입력
     token_chrome_remote_pin_encoded = get_token_from_f_txt(f_token=rf'{D_PKG_TXT}\token_chrome_remote_pin.txt', initial_str="")
-    token_chrome_remote_pin = decode_via_pk_system(token_chrome_remote_pin_encoded)
+    token_chrome_remote_pin = decode_via_pk_server_fastapi(token_chrome_remote_pin_encoded)
     write(token_chrome_remote_pin, milliseconds=5000)
     pk_press("enter")
 
@@ -7836,7 +7836,7 @@ def translate_eng_to_kor_via_googletrans(text: str):  # 수정할것 update 되�
     # print(rf'tmp : {tmp}')
     # print(rf'type(tmp) : {type(tmp)}')
     # print(rf'len(tmp) : {len(tmp)}')
-    # pk_system_ipdb.set_trace()
+    # pk_server_fastapi_ipdb.set_trace()
 
     # 한수훈 씨가 만든 모듈 같다. 무료이다. 단, 안정성 보장은 안되며, google 로 부터 ip가 차단이 될 수 있다.
     # 단일 텍스트의 최대 글자수 제한은 15k입니다. 이거 로직으로 제한 하도록.
@@ -8533,7 +8533,7 @@ def assist_to_do_pk_schedule():
 
         # # mkr_0시에서 24시 사이, # 분단위 스케쥴,
         # if 0 <= int(HH) <= 24 and int(ss) == 0:
-        #     monitor_target_edited_and_back_up(pnx_todo=pk_system_ARCHIVE_TOML)  # seconds_performance_test_results : ['11.95sec', '26.78sec', '11.94sec', '3.7sec', '11.72sec']
+        #     monitor_target_edited_and_back_up(pnx_todo=pk_server_fastapi_ARCHIVE_TOML)  # seconds_performance_test_results : ['11.95sec', '26.78sec', '11.94sec', '3.7sec', '11.72sec']
         #     if int(HH) == 6 and int(mm) == 30:
         #         # speak_ments(f'{int(HH)} 시 {int(mm)}분 루틴을 시작합니다', sleep_after_play=0.65, thread_join_mode=True)  # 쓰레드가 많아지니 speak() 하면서 부정확한 재생이 늘어났다. 쓰레드의 정확한 타이밍 제어가 필요한 것 같다. 급한대로 thread_join_mode 를 만들었다)
         #         # speak_ments(f'아침음악을 준비합니다, 아침음악을 재생할게요', sleep_after_play=0.65, thread_join_mode=True)
@@ -10187,7 +10187,7 @@ def get_length_of_mp3(f: str):
 #         # 재활용해야하는 pyglet_player는 더이상 쓸 수 없어졌다.
 #         if PYGLET_PLAYER is None:
 #             PYGLET_PLAYER=pyglet.media.Player()
-#         # if hasattr(pk_system_, 'pyglet_player') and pyglet_player is None:
+#         # if hasattr(pk_server_fastapi_, 'pyglet_player') and pyglet_player is None:
 #         #     # pyglet_player가 None인 경우
 #         #     pyglet_player=pyglet.media.Player()
 #         #     pass
@@ -10471,7 +10471,7 @@ def remove_special_characters(text):
     return re.sub(pattern, "", text)
 
 
-def make_project_tree_for_pk_system():
+def make_project_tree_for_pk_server_fastapi():
     import inspect
     from pkg_py.pk_core_constants import D_PKG_DPL
     func_n = inspect.currentframe().f_code.co_name
@@ -13803,7 +13803,7 @@ def kill_chrome_tab_duplicated():
             break
 
 
-def decode_via_pk_system(text_encoded):
+def decode_via_pk_server_fastapi(text_encoded):
     import inspect
     func_n = inspect.currentframe().f_code.co_name
     text_encoded = text_encoded.replace("2", "8")
@@ -14403,7 +14403,7 @@ def run_pk_release_server(port):
     # curl -O http://49:9090/1.zip && exit
     func_n = inspect.currentframe().f_code.co_name
 
-    py_pnx = rf'{D_PROJECT}\pk_system_{func_n}.py'
+    py_pnx = rf'{D_PROJECT}\pk_server_fastapi_{func_n}.py'
     if not does_pnx_exist(pnx=py_pnx):
         return
 
@@ -14416,7 +14416,7 @@ def run_pk_release_server(port):
     pk_print(f'''server_ip={server_ip}''')
     pk_print(f'''server_port={port}''')
 
-    # bat_pnx=rf'{USERPROFILE}\Downloads\pk_system\pk_system_http_server_run.cmd'
+    # bat_pnx=rf'{USERPROFILE}\Downloads\pk_server_fastapi\pk_server_fastapi_http_server_run.cmd'
     # cmd=rf'start cmd.exe /k "{bat_pnx}"'
 
     cmd = rf'start cmd.exe /k python "{py_pnx}"'
@@ -17637,7 +17637,7 @@ def run_hot_reload_to_x():
     # define
     dst = rf"{D_DOWNLOADS}\[]\[Moozzi2] Eighty-Six [ 4K Ver. ] - TV"
     dst = get_pnx_unix_style(pnx=dst)
-    src = rf"{dst}\pk_system_organize_video_seg_and_image_here.cmd"
+    src = rf"{dst}\pk_server_fastapi_organize_video_seg_and_image_here.cmd"
     pnx_new = get_pnx_new(d_working=dst, pnx=src)
     pnx_new = get_pnx_windows_style(pnx=pnx_new)
 
@@ -19465,7 +19465,7 @@ def restart_up_pk_process_list():
             # "cls",
             # 'start "" explorer "https://chatgpt.com/"',
             'explorer "https://chatgpt.com/"',
-            rf'explorer "{D_PROJECT}\.venv\Scripts\activate && python C:\Users\Autonomousa2z\Downloads\pk_system\pkg_py\pk_test.py && deactivate"',
+            rf'explorer "{D_PROJECT}\.venv\Scripts\activate && python C:\Users\Autonomousa2z\Downloads\pk_server_fastapi\pkg_py\pk_test.py && deactivate"',
             f'explorer "{kakaowork_ink}"',
             f'explorer "https://mail.autoa2z.co.kr/#inbox"',
             f'explorer "https://bb.bbgw.kr/a/in.bb"',
@@ -19547,7 +19547,7 @@ def restart_up_pk_process_list():
         # # (2) 콘솔 창 제목 설정
         # # title %~nx0
         # # Python에서 batch 스크립트처럼 %~nx0을 쓰기는 어려우므로, 간단히 문자열을 지정합니다.
-        # cmd_to_os("title pk_system_shell_start_up.py")
+        # cmd_to_os("title pk_server_fastapi_shell_start_up.py")
 
     # pnx
     pnx_list = [
@@ -21011,7 +21011,7 @@ def move_window_to_front_of_pycharm():
             ensure_window_to_front(pid=pid)
     except:
         pk_print(working_str=rf'''{'%%%FOO%%%' if LTA else ''}''', print_color='red')
-    # move_and_ensure_window_to_front(window_title_seg='pk_system_ – test.py')
+    # move_and_ensure_window_to_front(window_title_seg='pk_server_fastapi_ – test.py')
 
 
 def move_window_to_front_via_window_title_seg_based(window_title_seg):
@@ -24474,7 +24474,7 @@ def kill_us_keyboard():
                     if flag[0]:  # flag가 True면 리셋 후 루프 재시작
                         pk_print("Enter detected! Restarting loop...", print_color="white")
 
-                        # pk_system_kill_us_keyboard.cmd (run)
+                        # pk_server_fastapi_kill_us_keyboard.cmd (run)
                         f_cmd = rf"{D_PKG_CMD}/pk_kill_us_keyboard.cmd"
                         f_cmd = get_pnx_os_style(pnx=f_cmd)
                         cmd_to_os(cmd=rf'"{f_cmd}"', encoding='utf-8')
@@ -25014,7 +25014,7 @@ def test_api():
     # TODO : ROUTING TEST
 
     # POST REQUEST TEST
-    url = "https://pk_system.store/api/db-maria/items"
+    url = "https://pk_server_fastapi.store/api/db-maria/items"
     data = {
         "name": "John Doe",
         "email": "johndoe@example.com",
@@ -26818,7 +26818,7 @@ def ensure_vpc_flash_image_saved():
     # EVM_flash_241125.img
     # EVM_flash_241125.img.raw
     # cp EVM_flash_241125.img ~/Download
-    # scp EVM_flash_241125.img park4139@x.x.x.x:/home/pk_system/    # send to galaxybook4_junghoonpark
+    # scp EVM_flash_241125.img park4139@x.x.x.x:/home/pk_server_fastapi/    # send to galaxybook4_junghoonpark
 
     # to local
     # to nas
@@ -26971,7 +26971,7 @@ def ensure_vpc_flashed(wsl_data, vpc_data, config_remote_os):
                 cmd = rf"echo {pw} | sudo -S ./flash.sh -r jetson-xavier mmcblk0p1"
                 cmd_to_wsl_os_like_person_deprecated(cmd=cmd, remote_os_distro_n=wsl_distro_n, wsl_window_title_seg=wsl_window_title_seg)
 
-                # sudo mv /home/pk_system/Downloads/flash/xc_flash/Linux_for_Tegra/system.img* /home/pk_system/Downloads/flash/xc_flash/Linux_for_Tegra/rootfs/bin/
+                # sudo mv /home/pk_server_fastapi/Downloads/flash/xc_flash/Linux_for_Tegra/system.img* /home/pk_server_fastapi/Downloads/flash/xc_flash/Linux_for_Tegra/rootfs/bin/
 
                 # cmd = rf'sudo find -type f -name "system.img*"'
                 # cmd_to_wsl_like_person(cmd=cmd, remote_os_distro_n=remote_os_distro_n, wsl_window_title_seg=wsl_window_title_seg)
