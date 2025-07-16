@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi import HTTPException, Depends
 from requests import Session
 
-from pkg_pk_server_fastapi_for_linux import MySqlUtil, ItemsUtil, ItemsUtil
+from pkg_pk_server_api_for_linux import MySqlUtil, ItemsUtil, ItemsUtil
 
 
 router = APIRouter()

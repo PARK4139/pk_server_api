@@ -9,8 +9,8 @@ from pkg_py.pk_colorful_cli_util import pk_print, print_red
 if __name__ == "__main__":
     try:
         pk_colorama_init(autoreset=True)
-        git_repo_url = get_pk_token(f_token=rf"{D_PKG_TOML}/pk_token_pk_server_fastapi_github_repo_url.toml", initial_str="")
-        commit_msg = get_pk_input(message='commit_msg=', answer_options=[f"feat: auto pushed by pk_server_fastapi at {get_time_as_("%Y-%m-%d %H:%M")}"])
+        git_repo_url = get_pk_token(f_token=rf"{D_PKG_TOML}/pk_token_pk_server_api_github_repo_url.toml", initial_str="")
+        commit_msg = get_pk_input(message='commit_msg=', answer_options=[f"feat: auto pushed by pk_server_api at {get_time_as_("%Y-%m-%d %H:%M")}"])
         # TBD branch_name
         # TBD git_repo_url
         push_pnx_to_github(d_working=D_PROJECT, git_repo_url=git_repo_url, commit_msg=commit_msg, branch_n='dev')

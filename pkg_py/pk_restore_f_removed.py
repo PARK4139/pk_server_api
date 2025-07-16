@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
         # 경로 설정
         recuva_dir = Path(f"{D_DOWNLOADS}/working directory for pkg_py pnx restoration via recuva")
-        original_dir = Path(f"{D_DOWNLOADS}/pk_server_fastapi/pkg_py")
+        original_dir = Path(f"{D_DOWNLOADS}/pk_server_api/pkg_py")
 
         # 리네이밍 대상 저장 경로 (타임스탬프 포함)
         timestamp = datetime.now().strftime("%y%m%d_%H%M%S")

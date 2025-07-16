@@ -39,7 +39,7 @@ def _extract_latest_tracking(excel_path: str, save_path: str):
 
 
 if __name__ == "__main__":
-    BASE = os.path.join(os.environ['USERPROFILE'], 'Downloads', '[]', 'pk_server_fastapi', 'project_release_server')
+    BASE = os.path.join(os.environ['USERPROFILE'], 'Downloads', '[]', 'pk_server_api', 'project_release_server')
     EXCEL_FILE = os.path.join(BASE, '영상처리제어기 업무현황.xlsx')
     EXCEL_FILE_WORK_TRACKING_LATEST = os.path.join(BASE, '영상처리제어기 업무현황 최신업무트래킹.xlsx')
     ARCHIVER = os.path.join(BASE, 'pk_archive_old_version.py')

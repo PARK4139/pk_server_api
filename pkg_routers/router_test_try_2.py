@@ -10,7 +10,7 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from starlette.staticfiles import StaticFiles
 
-from pkg_pk_server_fastapi_for_linux import DebuggingUtil
+from pkg_pk_server_api_for_linux import DebuggingUtil
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="test/token")  # app 에서 router 로 분리하며 /token 에서 test/token 로 업데이트

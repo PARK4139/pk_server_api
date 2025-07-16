@@ -293,8 +293,8 @@ async def preprocess_before_response_return(request, call_next):
 
 
 # 라우팅 동작 설계 (잠정)
-# https://pk_server_fastapi.store/api/
-# https://pk_server_fastapi.store/web/
+# https://pk_server_api.store/api/
+# https://pk_server_api.store/web/
 # https://pjh4139.store/search/p=
 
 # 파비콘 라우팅 처리

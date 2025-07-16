@@ -43,7 +43,7 @@ project_release_server/
 docker push by manual.bat
 memo_how.toml
 memo_work.toml
-pk_server_fastapi_telegram_bot_session.session
+pk_server_api_telegram_bot_session.session
 # requirements.txt
 setup.py
 telegram_chat_id.txt

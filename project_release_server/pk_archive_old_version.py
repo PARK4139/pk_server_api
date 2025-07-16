@@ -4,7 +4,7 @@ import shutil
 # 원본 디렉토리와 대상 디렉토리 설정
 import os
 
-d_release = rf"{os.environ['USERPROFILE']}\Downloads\pk_server_fastapi\project_release_server\release"
+d_release = rf"{os.environ['USERPROFILE']}\Downloads\pk_server_api\project_release_server\release"
 d_archived = rf"{d_release}\archived"
 
 

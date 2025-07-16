@@ -14,7 +14,7 @@
 #         cleaned_paths.append(path)
 
 # # UV 경로 추가 (사용자 지정)
-# uv_path = r"C:\Users\user\Downloads\pk_server_fastapi\pkg_exe"
+# uv_path = r"C:\Users\user\Downloads\pk_server_api\pkg_exe"
 # if uv_path not in seen:
 #     cleaned_paths.append(uv_path)
 
@@ -46,7 +46,7 @@ for path in path_list:
         cleaned_paths.append(path)
 
 # UV 경로 추가 (사용자 지정)
-uv_path = r"C:\Users\user\Downloads\pk_server_fastapi\pkg_exe"
+uv_path = r"C:\Users\user\Downloads\pk_server_api\pkg_exe"
 if uv_path not in seen:
     cleaned_paths.append(uv_path)
 
