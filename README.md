@@ -1,5 +1,5 @@
-# project info map
-
+# project info 
+pk : prefix for custom
 
 
 ## project config
