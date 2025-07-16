@@ -357,7 +357,8 @@ app.include_router(router_nav_items.router, prefix="/api", tags=["nav-items API 
 # app.include_router(router_user.router, prefix="/api", tags=["회원관리 API(mysql.test_db.users 에 저장), 미완성"])
 # app.include_router(router_test.router, prefix="/test", tags=["JWT/OAuth2 test4 (MySql)"])
 
-# 이 파일을 uvicorn으로 실행하면 해당 코드 블록이 실행되지 않습니다.
+
+# 이 파일을 uvicorn으로 실행하면 해당 코드 블록(main())이 실행되지 않습니다.
 def main():
     import uvicorn
     import toml
