@@ -1,15 +1,1 @@
-version: "3.9"
-
-services:
-  uv-app:
-    build:
-      context: .
-      dockerfile: pk_practice.Dockerfile
-    container_name: pk_server_fastapi_test
-    volumes:
-      - .:/app
-    working_dir: /app
-    command: uv pip run python pkg_py/pk_print_hello_world.py
-    environment:
-      - PYTHONUNBUFFERED=1
-    tty: true
+# 필요한 경우 도커 컴포즈 파일

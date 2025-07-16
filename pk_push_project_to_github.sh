@@ -1,3 +1,6 @@
+#!/bin/bash
 git add .
-git commit -m "make save point by shecll script"
+read -p "Enter commit message: " commit_message
+git commit -m "$commit_message"
 git push
+

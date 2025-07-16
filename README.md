@@ -1,9 +1,1 @@
-# project info 
-pk : prefix for custom
-
-
-## project config
-described at ./pyproject.toml  
-
-
-# non-release vs release by tag
+# FastAPI 프로젝트 템플릿
