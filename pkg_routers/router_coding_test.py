@@ -68,7 +68,7 @@ def authenticate_user(form_data_username: str, form_data_password: str):
     import inspect
 
     from pkg_py.pk_colorful_cli_util import pk_print
-    from project_fastapi.main_pk import MySqlUtil
+    from project_fastapi.main import MySqlUtil
     func_n = inspect.currentframe().f_code.co_name
     pk_print(f"{func_n}()")
 
@@ -109,7 +109,7 @@ async def post_jwt(form_data: OAuth2PasswordRequestForm = Depends()):
     from fastapi import HTTPException
     from starlette import status
     from pkg_py.pk_colorful_cli_util import pk_print
-    from project_fastapi.main_pk import MySqlUtil
+    from project_fastapi.main import MySqlUtil
     func_n = inspect.currentframe().f_code.co_name
     pk_print(f"{func_n}()")
     try:

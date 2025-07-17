@@ -1,6 +1,6 @@
 import inspect
 import os
-from project_fastapi.main_pk import ProjectFastapiUtil
+from project_fastapi.main import ProjectFastapiUtil
 
 from fastapi import APIRouter
 from fastapi.requests import Request

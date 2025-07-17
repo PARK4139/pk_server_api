@@ -43,7 +43,7 @@ if __name__ == '__main__':
             f'',
             f'COPY . .',
             f'',
-            f'CMD ["/container_workspace/.venv/bin/python", "-m", "uvicorn", "project_fastapi.main_pk:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]',
+            f'CMD ["/container_workspace/.venv/bin/python", "-m", "uvicorn", "project_fastapi.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80"]',
             f'',
         ]
         # run_project_docker_base(f=rf'{D_PROJECT}/project_fastapi.Dockerfile',f_dockerfile_script_list=f_dockerfile_script_list)
