@@ -1,5 +1,3 @@
-
-
 import inspect
 import os
 import random
@@ -23,7 +21,6 @@ from pkg_py.pk_colorful_cli_util import pk_print
 # hdlr.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
 # logger.addHandler(hdlr)
 # logger.setLevel(logging.INFO)
-
 
 # pk_print() 메소드 테스트 결과, 1개 파일을 만들어 실행하는 데까지 무려 11초 정도로 측정됨, ffmpeg 작업 속도로 문제
 # 의도적으로 mp3 파일을 미리 만들어, ffmpeg 로 두 파일 합성작업 시간을 줄일수 있으므로, 성능 최적화 기대,
@@ -1243,7 +1240,7 @@ def update_ticker_xlsx():
 
     # function().xlsx 에 저장
     FILE_XLSX = f"{D_PKG_XLSX}/{inspect.currentframe().f_code.co_name}().xlsx"
-    make_pnx(mode='f', (FILE_XLSX)
+    make_pnx(mode='f', (FILE_XLSX))
     df_concated.to_excel(FILE_XLSX)
 
     # df_fig.x 에 저장

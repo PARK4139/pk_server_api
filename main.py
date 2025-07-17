@@ -7,11 +7,21 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.exceptions import ExceptionMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.templating import Jinja2Templates
+from config.loader import load_uvicorn_config
 from pkg_py.pk_colorful_cli_util import pk_print
 from pkg_py.pk_core import get_random_bytes, ensure_pnx_made, get_pnx_os_style, LTA
 from pkg_py.pk_core_constants import D_STATIC, D_PROJECT_FASTAPI, D_PKG_CLOUD, D_PKG_PNG
 from pkg_routers import router_nav_items
+import uvicorn
+import toml
+from pkg_py.pk_core import get_n
+from pkg_py.pk_core_constants import F_CONFIG_TOML
+import toml
 
+
+
+# 설정 파일 로딩
+uvicorn_cfg = load_uvicorn_config(toml.load(F_CONFIG_TOML))
 templates = Jinja2Templates(directory=r"pkg_web/templates")
 
 
@@ -83,44 +93,19 @@ def init_ip_address_allowed(app):
     pass
 
 
-async def preprocess_after_request(request):
+async def do_process_before_routing(request):
     if LTA:
-        pk_print(f"{str(request.url)} 로 라우팅 시도 중...")
+        # TBD : routing_cnt -> DB
+        pk_print(f"[ROUTING TRACER] {str(request.url)} 로 라우팅 시도 중...")
     pass
 
 
-async def preprocess_before_response_return(request, response):
+async def do_process_after_routing(request, response):
     if LTA:
-        pk_print(f"{str(request.url)} 로 라우팅 되었습니다")
+        print(f"[ROUTING TRACER] 응답 준비 완료: {response.status_code}")
+        # TBD : response 로깅
+        pass
     pass
-
-
-def init_and_update_f_json(f_json, objects=None):
-    import os
-    import json
-    from pkg_py.pk_core import is_letters_cnt_zero, write_str_to_f
-
-    from pkg_py.pk_core import ensure_pnx_made
-    if objects is None:
-        objects = []
-    try:
-        ensure_pnx_made(pnx=f_json, mode='f')
-        if os.path.exists(f_json):
-            if is_letters_cnt_zero(f=f_json) == True:
-                write_str_to_f(txt=f"[]\n", f=f_json, mode="a")
-
-            else:
-                if not os.path.isfile(f_json):
-                    with open(f_json, "w", encoding='utf-8') as f:
-                        # json.dump(objects, f, ensure_ascii=False)  # ensure_ascii=False 는 encoding 을 그대로 유지하는 것 같다. ascii 로 변환하는게 안전할 지도 모르겠다.
-                        json.dump(objects, f)  # ensure_ascii=False 는 encoding 을 그대로 유지하는 것 같다. ascii 로 변환하는게 안전할 지도 모르겠다.
-                else:
-                    with open(f_json, "r", encoding='utf-8') as f:
-                        # pk_print(f"{BOOKS_FILE} 업로드 되었습니다")
-                        objects = json.load(f)
-                    return objects
-    except IOError as e:
-        print("파일 작업 중 오류가 발생했습니다:", str(e))
 
 
 # 영한 버전 설정
@@ -129,25 +114,14 @@ def init_and_update_f_json(f_json, objects=None):
 @asynccontextmanager
 async def lifespan(app: FastAPI):  # oneshot trigger
     # 앱 시작 후 1번만 실행 # app 객체 생성 뒤
-    import traceback
-    import sys
     import os
-
-    try:
+    if LTA:
         pk_print(rf'''LTA="{LTA}" %%%FOO%%%''')
         pk_print(rf'''os.path.basename(__file__)="{os.path.basename(__file__)}" %%%FOO%%%''')
-
-
-    except:
-        traceback.print_exc(file=sys.stdout)
-        pk_print(rf'''예약된 데이터베이스 작업을 수행할 수 없었습니다.''', print_color='blue')
-
-    # 서버 인사
-    if LTA:
-        pk_print(rf'pk_uvicorn_url : {pk_uvicorn_url}', print_color='green')
+        pk_print(rf'uvicorn_cfg.url : {uvicorn_cfg.url}', print_color='green')
         pk_print(rf"✧*｡٩(ˊᗜˋ*)و✧*｡", print_color='green')
 
-    # swagger 실행
+    # swagger 테스트
     # explorer(fr"{UvicornUtil.Config.protocol_type}://{uvicorn_host}:{uvicorn_port}/docs")
     # explorer(fr"{UvicornUtil.Config.protocol_type}://{uvicorn_host}:{uvicorn_port}/redoc")
     # explorer(fr"{UvicornUtil.Config.protocol_type}://{uvicorn_host}:{uvicorn_port}")
@@ -158,28 +132,14 @@ async def lifespan(app: FastAPI):  # oneshot trigger
     # 콘솔 타이틀 변경 테스트
     # lines = subprocess.check_output(rf'start cmd /k title NETWORK TEST CONSOLE', shell=True).decode('utf-8').split("\n")
 
-    # 머신러닝 모델 더미 생성
-    # def fake_answer_to_everything_ml_model(x: float):
-    #     return x * 42
-    #
-    # # Load the ML model
-    # ml_models["answer_to_everything"] = fake_answer_to_everything_ml_model
-
     yield  # lifespan의 동작트리거, 전후로 startup/shutdown 동작
 
     pk_print(f"애플리케이션 종료를 진행합니다", print_color='green')
-
-    # 백업도 작성대기
-
-    # # Clean up the ML models and release the resources
-    # ml_models.clear()
 
 
 for d in [D_PROJECT_FASTAPI, D_STATIC, D_PKG_CLOUD, D_PKG_PNG]:
     ensure_pnx_made(mode='d', pnx=d)
     d = get_pnx_os_style(d)
-
-
 
 
 app = FastAPI(lifespan=lifespan, swagger_ui_parameters={"tryItOutEnabled": True})
@@ -188,13 +148,13 @@ app.mount("/pkg_cloud", StaticFiles(directory=D_PKG_CLOUD), name="pkg_cloud")
 app.mount("/pkg_png", StaticFiles(directory=D_PKG_PNG), name="pkg_png")
 
 # 미들웨어
-# UvicornUtil.init_ip_address_allowed(app) # nginx 가 앞단이므로 nginx 에서 설정하는 것이 효율적일듯
+# UvicornUtil.init_ip_address_allowed(app) # nginx(reverse proxy) 가 앞단이므로 nginx 에서 설정하는 것이 효율적일듯
 # UvicornUtil.init_domain_address_allowed(app) # nginx 가 앞단이므로 nginx 에서 설정하는 것이 효율적일듯
 if not LTA:
     init_cors_policy(app)  # nginx 가 앞단이므로 nginx 에서 설정하는 되어 있으므로 dev 에서 테스트 시에만 필요
 
 
-# fastapi 기본 예외처리 핸들러
+# fastapi 예외처리 핸들러
 # FastAPI는 기본적으로 예외 처리를 으로 처리하고 오류 응답을 생성합니다. 하지만 커스텀 핸들러를 추가하여, 예외를 직접 처리할 수 있음
 @app.exception_handler(RequestValidationError)
 async def reqeust_validation_exception_handler(request: Request, exc):  # exc : Exception
@@ -267,29 +227,18 @@ app.add_middleware(ExceptionMiddleware)
 # }
 # app.exception_handlers = exception_handlers
 
-
 app.add_middleware(
     SessionMiddleware,
-    secret_key=get_random_bytes(),  # 난수생성기로 세션시크릿 생성 # 세션이 동적으로 생성이 되게 하려고 했는데 그러면, 서버 재시작시 세션데이터가 손실, 동일서버를 다중서버로 운영 시 시크릿 키가 서로 다르면 문제가 됨. 고로 같아야함.
-    max_age=3600,  # 세션 수명 3600 초(1시간)
+    secret_key=get_random_bytes(), # 세션이 동적으로 생성이 되게 하려고 했는데 그러면, 서버 재시작시 세션데이터가 손실, 동일서버를 다중서버로 운영 시 시크릿 키가 서로 다르면 문제가 됨. 고로 같아야함.
+    max_age=3600,  # 세션 수명 (seconds)
 )
 
-
-@app.middleware("http")
-async def preprocess_after_request(request, call_next):
-    # 매 라우팅 전에 동작하는 함수 # 일종의 aop 같이 처리? # request 감지하고 트리거로서 가로채기를 하는 느낌이다
-    await preprocess_after_request(request)
+@app.middleware("http") # @middleware FastAPI의 AOP 스타일 트릭
+async def trace_http_request(request, call_next):
+    await do_process_before_routing(request) 
     response = await call_next(request)
+    await do_process_after_routing(request, response) 
     return response
-
-
-@app.middleware("http")
-async def preprocess_before_response_return(request, call_next):
-    # 매 라우팅 후에 동작하는 함수
-    response = await call_next(request)
-    await preprocess_before_response_return(request, response)
-    return response
-
 
 # 라우팅 동작 설계 (잠정)
 # https://pk_server_api.store/api/
@@ -303,7 +252,7 @@ async def preprocess_before_response_return(request, call_next):
 #     #     # return Response(content=b'', media_type='image/x-icon')
 #     #     # raise HTTPException(status_code=404)
 #     #     # raise HTTPException(status_code=500)
-#     pass  # favicon 요청에 대한 콘솔에 출력.
+#     pass  # favicon 요청에 대한 콘솔에 출력
 
 # 라우터 설정
 @app.get("/", tags=["API 테스트"])  # tags 파라미터는 FastAPI 문서화에 사용되는 데이터, 엔드포인트를 그룹화하는 데 사용되는 기능, # tags 를 동일하게 입력하면 하나의 api 그룹으로 묶을 수 있다
@@ -311,26 +260,28 @@ async def check_api_health(request: Request):
     import os
     import inspect
     from starlette.responses import RedirectResponse
-
-    from pkg_py.pk_core import print_iterable_as_vertical
-
     router_n = inspect.currentframe().f_code.co_name
     pk_print(f"{router_n}()", print_color='blue')
-    if LTA:
-        urls = []
-        for index, route in enumerate(app.routes):
-            if hasattr(route, "path"):
-                url = f"{str(request.base_url)[0:-1]}{route.path}"
-                pk_print(f'''url={url} %%%FOO%%%''')
-                urls.append(url)
-        print_iterable_as_vertical(item_iterable=urls, item_iterable_n=urls)
-        # return json
-        return {"success": f"fastapi 서버로서 {os.path.basename(__file__)}를 구동 중 입니다"}
-    else:
-        # redirect web
-        return RedirectResponse(url="/web/member")
 
-
+    base_url = request.base_url
+        if LTA:
+            routable_urls = []
+            for index, route in enumerate(app.routes):
+                if hasattr(route, "path"):
+                    url = f"{str(base_url)[0:-1]}{route.path}"
+                    pk_print(f'''url={url} %%%FOO%%%''')
+                    routable_urls.append(url)
+            # cmd_to_os("explorer.exe ")
+        data = {
+                "api_router_health": f"success",
+                "routable_urls": f"{routable_urls}",
+        }
+        return data
+    except:
+        return RedirectResponse(url="/TBD")
+        # return RedirectResponse(url="/web/member") # redirect web
+            
+ 
 # web
 # app.include_router(router_main.router, prefix="/web", tags=["회원관리 메인 web (MySql)"])
 # app.include_router(router_join.router, prefix="/web", tags=["회원관리 가입 web (MySql)"])
@@ -343,10 +294,9 @@ async def check_api_health(request: Request):
 # app.include_router(router_finance_data.router, prefix="/web", tags=["금융정보 web (Open Api)"])
 # app.include_router(router_developer_special.router, prefix="/web", tags=["백오피스 web"])
 
+
 # api
 app.include_router(router_nav_items.router, prefix="/api", tags=["nav-items API #DB JSON"])
-
-
 # app.include_router(router_test_try_1.router, prefix="/test", tags=["x test try 1"])
 # app.include_router(router_test_try_2.router, prefix="/test", tags=["x test try 2"])
 # app.include_router(router_test_try_3.router, prefix="/test", tags=["x test try 3"])
@@ -359,23 +309,10 @@ app.include_router(router_nav_items.router, prefix="/api", tags=["nav-items API 
 
 # 이 파일을 uvicorn으로 실행하면 해당 코드 블록(main())이 실행되지 않습니다.
 def main():
-    import uvicorn
-    import toml
-
-    from pkg_py.pk_core import get_n
-    from pkg_py.pk_core_constants import F_CONFIG_TOML
-
-    config = toml.load(F_CONFIG_TOML)
-    pk_protocol_type = config["pk_uvicorn"]["protocol_type"]
-    pk_host = config["pk_uvicorn"]["host"]
-    pk_port = config["pk_uvicorn"]["port"]
-    pk_uvicorn_url = f"{pk_protocol_type}://{pk_host}:{pk_port}"
-    pk_print(f'''pk_uvicorn_url={pk_uvicorn_url} %%%FOO%%%''')
-
-    uvicorn.run(app=f"{get_n(__file__)}:app", host=pk_host, port=pk_port)
+    pk_print(f'''[STARTED] pk_uvicorn ({uvicorn_cfg.url}) %%%FOO%%%''')
+    uvicorn.run(app=f"{get_n(__file__)}:app", host=uvicorn_cfg.host, port=uvicorn_cfg.port)
 
 
 if __name__ == "__main__":
-    # 이 파일이 직접 실행되는 경우만 이 코드 블록은 실행됩니다.
-    # 이 파일을 import하여 사용할 때는 해당 코드 블록이 실행되지 않습니다.
+    # 이 파일이 python으로 실행되는 경우만 이 코드 블록은 실행됩니다.
     main()

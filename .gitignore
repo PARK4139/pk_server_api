@@ -35,6 +35,7 @@ pk_server_api.egg-info
 # project_fastapi
 # project_streamlit
 # project_vstest
+pkg_toml/.git
 #________________________________________________ f
 pk_token_key.toml
 pk_token_pw_2nd_sym.toml

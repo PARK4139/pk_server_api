@@ -670,13 +670,6 @@ def set_database():
     # 콘솔 타이틀 변경 테스트
     # lines = subprocess.check_output(rf'start cmd /k title NETWORK TEST CONSOLE', shell=True).decode('utf-8').split("\n")
 
-    # 머신러닝 모델 더미 생성
-    # def fake_answer_to_everything_ml_model(x: float):
-    #     return x * 42
-    #
-    # # Load the ML model
-    # ml_models["answer_to_everything"] = fake_answer_to_everything_ml_model
-
     yield  # lifespan의 동작트리거, 전후로 startup/shutdown 동작
 
     pk_print(f"애플리케이션 종료를 진행합니다", print_color='green')
